@@ -1,0 +1,22 @@
+{
+  "image_path": "cat.jpeg",
+  "labels": [
+    "Cat",
+    "Felinae",
+    "Felidae",
+    "Wood flooring",
+    "Hardwood",
+    "Fur",
+    "Domestic short-haired cat",
+    "Laminate flooring",
+    "Whiskers",
+    "Pet Supply"
+  ],
+  "text": [
+    "D"
+  ],
+  "objects": [],
+  "brands": [],
+  "confidence_score": 0.55,
+  "suggested_category": null
+}

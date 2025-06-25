@@ -1,0 +1,22 @@
+{
+  "image_path": "cat.jpeg",
+  "product_description": "A used, gray and white plastic cat litter box.  The image shows a cat using the litter box, resulting in a noticeable liquid spill on the floor.",
+  "brand": "null",
+  "product_type": "Pet Supplies",
+  "condition": "Used, Good",
+  "notable_features": [
+    "Gray and white plastic construction",
+    "Appears to be a self-cleaning type of litter box (based on shape and design)",
+    "Shows signs of use (liquid spill evident)"
+  ],
+  "market_category": "Pet Supplies > Cat Supplies > Litter Boxes & Accessories",
+  "confidence_level": "Medium",
+  "pricing_factors": [
+    "Brand (if identifiable)",
+    "Overall condition (minor scratches or stains could reduce value)",
+    "Type of litter box (self-cleaning models typically command higher prices)",
+    "Demand for used litter boxes in the area",
+    "Comparable listings on online marketplaces"
+  ],
+  "raw_response": "```json\n{\n  \"product_description\": \"A used, gray and white plastic cat litter box.  The image shows a cat using the litter box, resulting in a noticeable liquid spill on the floor.\",\n  \"brand\": \"null\",\n  \"product_type\": \"Pet Supplies\",\n  \"condition\": \"Used, Good\",\n  \"notable_features\": [\n    \"Gray and white plastic construction\",\n    \"Appears to be a self-cleaning type of litter box (based on shape and design)\",\n    \"Shows signs of use (liquid spill evident)\"\n  ],\n  \"market_category\": \"Pet Supplies > Cat Supplies > Litter Boxes & Accessories\",\n  \"confidence_level\": \"Medium\",\n  \"pricing_factors\": [\n    \"Brand (if identifiable)\",\n    \"Overall condition (minor scratches or stains could reduce value)\",\n    \"Type of litter box (self-cleaning models typically command higher prices)\",\n    \"Demand for used litter boxes in the area\",\n    \"Comparable listings on online marketplaces\"\n  ]\n}\n```\n"
+}
