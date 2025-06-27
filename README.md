@@ -19,14 +19,15 @@ We're starting simple! Instead of building a full web app, we're creating Python
 
 ```bash
 # Try it out:
-python pricing_assistant.py photo.jpg
+uv run scripts/gemini_analyzer.py photo.jpg
 ```
 
-**Script Pipeline:**
-1. `image_analyzer.py` - Identifies products from photos using Google Vision API
-2. `price_researcher.py` - Searches marketplaces for similar items and pricing
-3. `market_analyzer.py` - Analyzes trends and provides recommendations
-4. `pricing_assistant.py` - Main script that orchestrates everything
+**Available Scripts:**
+1. `gemini_analyzer.py` - AI-powered product identification using Google Gemini API
+2. `image_analyzer.py` - Identifies products from photos using Google Vision API  
+3. `price_researcher.py` - Searches marketplaces for similar items and pricing
+4. `ai_pricing_engine.py` - Advanced AI-powered pricing analysis
+5. `ebay_api_researcher.py` - eBay marketplace research and pricing data
 
 ## Current Status
 
@@ -46,9 +47,9 @@ uv sync
 cp .env.example .env
 # Edit .env with your Google Vision API key
 
-# Activate virtual environment and try it out!
-source .venv/bin/activate
-python scripts/image_analyzer.py examples/shirt.jpg
+# Try it out! (uv automatically manages the virtual environment)
+uv run scripts/gemini_analyzer.py examples/shirt.jpg
+uv run scripts/image_analyzer.py examples/shirt.jpg
 ```
 
 ## Project Structure
@@ -56,13 +57,14 @@ python scripts/image_analyzer.py examples/shirt.jpg
 ```
 pickprice/
 ├── scripts/          # Proof-of-concept Python scripts
+│   ├── gemini_analyzer.py
 │   ├── image_analyzer.py
 │   ├── price_researcher.py
-│   ├── market_analyzer.py
-│   └── pricing_assistant.py
+│   ├── ai_pricing_engine.py
+│   └── ebay_api_researcher.py
 ├── examples/         # Sample images for testing
 ├── docs/             # Documentation and ideas
-└── requirements.txt  # Python dependencies
+└── pyproject.toml    # Python dependencies managed by uv
 ```
 
 ## Environment Variables (Future)

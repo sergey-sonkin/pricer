@@ -4,7 +4,10 @@
       "Bash(mkdir:*)",
       "Bash(uv:*)",
       "Bash(source:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(ls:*)",
+      "mcp__ide__getDiagnostics",
+      "WebFetch(domain:ai.google.dev)"
     ],
     "deny": []
   }

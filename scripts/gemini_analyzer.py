@@ -9,16 +9,17 @@ product descriptions, brand identification, and market insights.
 import json
 import os
 import sys
+import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional
 
 try:
-    import google.generativeai as genai
+    import google.genai as genai
     from PIL import Image
 except ImportError as e:
     print(f"Missing dependencies: {e}")
-    print("Install with: uv add google-generativeai pillow")
+    print("Install with: uv add google-genai pillow")
     sys.exit(1)
 
 
@@ -56,12 +57,11 @@ class GeminiAnalyzer:
             print("Or get one at: https://aistudio.google.com/app/apikey")
             sys.exit(1)
 
-        # Configure Gemini
-        genai.configure(api_key=api_key)
+        # Initialize Gemini client
         try:
-            self.model = genai.GenerativeModel("gemini-1.5-flash")
+            self.client = genai.Client(api_key=api_key)
         except Exception as e:
-            print(f"Failed to initialize Gemini model: {e}")
+            print(f"Failed to initialize Gemini client: {e}")
             sys.exit(1)
 
     def analyze_image(self, image_path: str) -> ProductAnalysis:
@@ -108,7 +108,10 @@ class GeminiAnalyzer:
 
         try:
             # Generate analysis using Gemini
-            response = self.model.generate_content([prompt, image])
+            response = self.client.models.generate_content(
+                model="gemini-1.5-flash",
+                contents=[prompt, image]
+            )
 
             if not response.text:
                 raise ValueError("Empty response from Gemini")
@@ -193,8 +196,8 @@ class GeminiAnalyzer:
 def main():
     """Main function for command-line usage"""
     if len(sys.argv) != 2:
-        print("Usage: python gemini_analyzer.py <image_path>")
-        print("Example: python gemini_analyzer.py ../examples/shirt.jpg")
+        print("Usage: uv run scripts/gemini_analyzer.py <image_path>")
+        print("Example: uv run scripts/gemini_analyzer.py examples/shirt.jpg")
         print("\nMake sure to set GOOGLE_AI_API_KEY environment variable")
         sys.exit(1)
 
@@ -213,7 +216,8 @@ def main():
         analyzer.print_analysis(analysis, image_path)
 
         # Save results to JSON
-        output_file = f"{Path(image_path).stem}_gemini_analysis.json"
+        os.makedirs('logs/gemini_analyzer', exist_ok=True)
+        output_file = f"logs/gemini_analyzer/{Path(image_path).stem}_gemini_analysis_{int(time.time())}.json"
         with open(output_file, "w") as f:
             json.dump(
                 {

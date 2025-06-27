@@ -9,6 +9,7 @@ for pricing analysis.
 import json
 import os
 import sys
+import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional
@@ -213,7 +214,8 @@ def main():
         analyzer.print_analysis(product_info, image_path)
 
         # Save results to JSON
-        output_file = f"{Path(image_path).stem}_analysis.json"
+        os.makedirs('logs/image_analyzer', exist_ok=True)
+        output_file = f"logs/image_analyzer/{Path(image_path).stem}_analysis_{int(time.time())}.json"
         with open(output_file, "w") as f:
             json.dump(
                 {

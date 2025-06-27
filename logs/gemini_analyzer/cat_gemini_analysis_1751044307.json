@@ -1,0 +1,22 @@
+{
+  "image_path": "examples/cat.jpeg",
+  "product_description": "A used, grey and white plastic cat litter box.  The litter box appears to be in decent condition, but there is a visible mess on the floor nearby indicating potential issues with litter box use or cleanliness.",
+  "brand": "null",
+  "product_type": "Pet Supplies",
+  "condition": "Used",
+  "notable_features": [
+    "Grey and white plastic construction",
+    "Covered litter box design",
+    "Possible signs of cat urine near the litter box"
+  ],
+  "market_category": "Pet Supplies > Cat Supplies > Litter Boxes",
+  "confidence_level": "Medium",
+  "pricing_factors": [
+    "Overall condition of the litter box",
+    "Evidence of cleanliness and hygiene",
+    "Size and style of the litter box",
+    "Presence of any additional accessories",
+    "Presence of urine on the floor"
+  ],
+  "raw_response": "```json\n{\n  \"product_description\": \"A used, grey and white plastic cat litter box.  The litter box appears to be in decent condition, but there is a visible mess on the floor nearby indicating potential issues with litter box use or cleanliness.\",\n  \"brand\": \"null\",\n  \"product_type\": \"Pet Supplies\",\n  \"condition\": \"Used\",\n  \"notable_features\": [\n    \"Grey and white plastic construction\",\n    \"Covered litter box design\",\n    \"Possible signs of cat urine near the litter box\"\n  ],\n  \"market_category\": \"Pet Supplies > Cat Supplies > Litter Boxes\",\n  \"confidence_level\": \"Medium\",\n  \"pricing_factors\": [\n    \"Overall condition of the litter box\",\n    \"Evidence of cleanliness and hygiene\",\n    \"Size and style of the litter box\",\n    \"Presence of any additional accessories\",\n    \"Presence of urine on the floor\"\n  ]\n}\n```\n"
+}
