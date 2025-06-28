@@ -23,6 +23,7 @@ python agent/main.py
 ```
 
 **🏗️ Architecture Overview:**
+
 - **`lib/`** - Core reusable analyzer classes (GeminiAnalyzer, etc.)
 - **`tools/`** - Agent tool wrappers that use lib classes
 - **`scripts/`** - CLI interfaces for standalone usage
@@ -30,11 +31,13 @@ python agent/main.py
 - **`tests/`** - Documented test cases for regression testing
 
 **🛠️ Agent Tools:**
+
 - **Gemini Vision Analysis** - Google's AI for product identification from photos
 - **File System Tools** - Read and explore project files
 - **Future Tools** - Price research, market analysis, and more
 
 **📋 Available Scripts:**
+
 1. `gemini_analyzer.py` - AI-powered product identification using Google Gemini API
 2. `image_analyzer.py` - Identifies products from photos using Google Vision API
 3. `price_researcher.py` - Searches marketplaces for similar items and pricing
@@ -44,8 +47,11 @@ python agent/main.py
 ## Current Status
 
 🤖 **AI Agent Phase** - Claude as the main pricing agent with clean modular tools
+
 🏗️ **Clean Architecture** - Separated library code, tools, and CLI interfaces
+
 🧪 **Quality Assurance** - Documented test cases for regression testing
+
 🔬 **Proof-of-Concept Phase** - Building simple scripts to validate ideas
 
 ## Quick Start
@@ -123,6 +129,7 @@ We maintain quality through documented test cases in `tests/test-cases.md`:
 ```
 
 **Test Categories:**
+
 - Image analysis and product identification
 - File system navigation and code exploration
 - Multi-step workflows and tool chaining
