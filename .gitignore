@@ -1,2 +1,17 @@
+# Virtual environment
 /.venv
+
+# Claude CLI
 /.claude
+
+# Python cache
+__pycache__/
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+
+# Log files
+*.log
