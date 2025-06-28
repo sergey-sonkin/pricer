@@ -8,7 +8,10 @@
       "Bash(ls:*)",
       "mcp__ide__getDiagnostics",
       "WebFetch(domain:ai.google.dev)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(ruff check:*)",
+      "Bash(git commit:*)",
+      "Bash(git add:*)"
     ],
     "deny": []
   }

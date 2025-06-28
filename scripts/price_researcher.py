@@ -13,7 +13,6 @@ import re
 import sys
 import time
 from dataclasses import dataclass
-from typing import Dict, List
 from urllib.parse import quote
 
 try:
@@ -45,10 +44,10 @@ class PriceAnalysis:
 
     search_terms: str
     total_results: int
-    price_range: Dict[str, float]  # min, max, average, median
-    recent_sales: List[PriceData]
-    price_trends: Dict[str, str]
-    recommendations: List[str]
+    price_range: dict[str, float]  # min, max, average, median
+    recent_sales: list[PriceData]
+    price_trends: dict[str, str]
+    recommendations: list[str]
     confidence_score: float
 
 
@@ -241,7 +240,7 @@ class PriceResearcher:
 
     def _scrape_ebay_sold(
         self, search_terms: str, max_results: int = 20
-    ) -> List[PriceData]:
+    ) -> list[PriceData]:
         """Scrape eBay sold listings for pricing data"""
         results = []
 
@@ -357,7 +356,7 @@ class PriceResearcher:
 
     def _scrape_ebay_current(
         self, search_terms: str, max_results: int = 10
-    ) -> List[PriceData]:
+    ) -> list[PriceData]:
         """Scrape current eBay listings for market context"""
         results = []
 
@@ -413,7 +412,7 @@ class PriceResearcher:
 
     def _scrape_google_shopping(
         self, search_terms: str, max_results: int = 5
-    ) -> List[PriceData]:
+    ) -> list[PriceData]:
         """Search Google Shopping for price references"""
         results = []
 
@@ -459,7 +458,7 @@ class PriceResearcher:
     def _analyze_pricing_data(
         self,
         search_terms: str,
-        price_data: List[PriceData],
+        price_data: list[PriceData],
         condition: str | None = None,
     ) -> PriceAnalysis:
         """Analyze collected pricing data and generate insights"""
@@ -503,10 +502,10 @@ class PriceResearcher:
 
     def _generate_recommendations(
         self,
-        price_data: List[PriceData],
-        price_range: Dict[str, float],
+        price_data: list[PriceData],
+        price_range: dict[str, float],
         condition: str | None,
-    ) -> List[str]:
+    ) -> list[str]:
         """Generate pricing recommendations based on data"""
         recommendations = []
         avg_price = price_range["average"]
@@ -546,7 +545,7 @@ class PriceResearcher:
 
         return recommendations
 
-    def _calculate_confidence(self, price_data: List[PriceData]) -> float:
+    def _calculate_confidence(self, price_data: list[PriceData]) -> float:
         """Calculate confidence score based on available data"""
         sold_count = len([item for item in price_data if item.source == "eBay Sold"])
         total_count = len(price_data)
@@ -609,7 +608,7 @@ def main():
         researcher.print_analysis(analysis)
 
         # Save results to JSON
-        os.makedirs('logs/price_researcher', exist_ok=True)
+        os.makedirs("logs/price_researcher", exist_ok=True)
         output_file = f"logs/price_researcher/price_analysis_{int(time.time())}.json"
         with open(output_file, "w") as f:
             json.dump(

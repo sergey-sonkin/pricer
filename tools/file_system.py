@@ -13,34 +13,34 @@ from .base import ToolDefinition
 def read_file(input_data: dict[str, Any]) -> str:
     """
     Read the contents of a file
-    
+
     Args:
         input_data: Dictionary containing 'path' key
-        
+
     Returns:
         File contents as a string
-        
+
     Raises:
         Exception: If file cannot be read
     """
     path = input_data["path"]
     try:
-        with open(path, "r", encoding="utf-8") as f:
+        with open(path, encoding="utf-8") as f:
             return f.read()
     except Exception as e:
-        raise Exception(f"Error reading file: {str(e)}")
+        raise Exception(f"Error reading file: {str(e)}") from e
 
 
 def list_files(input_data: dict[str, Any]) -> str:
     """
     List files and directories in a path
-    
+
     Args:
         input_data: Dictionary with optional 'path' key (defaults to current directory)
-        
+
     Returns:
         Newline-separated list of files and directories
-        
+
     Raises:
         Exception: If directory cannot be listed
     """
@@ -49,7 +49,7 @@ def list_files(input_data: dict[str, Any]) -> str:
         files = os.listdir(path)
         return "\n".join(files)
     except Exception as e:
-        raise Exception(f"Error listing files: {str(e)}")
+        raise Exception(f"Error listing files: {str(e)}") from e
 
 
 # Tool definitions

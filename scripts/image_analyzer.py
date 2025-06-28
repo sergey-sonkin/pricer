@@ -12,11 +12,9 @@ import sys
 import time
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List, Optional
+from typing import Optional
 
 try:
-    import io
-
     from google.cloud import vision
 except ImportError as e:
     print(f"Missing dependencies: {e}")
@@ -28,10 +26,10 @@ except ImportError as e:
 class ProductInfo:
     """Information extracted from product image"""
 
-    labels: List[str]
-    text: List[str]
-    objects: List[str]
-    brands: List[str]
+    labels: list[str]
+    text: list[str]
+    objects: list[str]
+    brands: list[str]
     confidence_score: float
 
 
@@ -73,7 +71,7 @@ class ImageAnalyzer:
             raise FileNotFoundError(f"Image not found: {image_path}")
 
         # Load image
-        with io.open(image_path, "rb") as image_file:
+        with open(image_path, "rb") as image_file:
             content = image_file.read()
 
         image = vision.Image(content=content)
@@ -123,7 +121,7 @@ class ImageAnalyzer:
             confidence_score=confidence,
         )
 
-    def _extract_brands(self, texts: List[str]) -> List[str]:
+    def _extract_brands(self, texts: list[str]) -> list[str]:
         """Extract potential brand names from detected text"""
         # Common brand indicators
         brand_indicators = ["®", "™", "©"]
@@ -148,7 +146,7 @@ class ImageAnalyzer:
         return list(set(potential_brands))
 
     def _calculate_confidence(
-        self, labels: List[str], texts: List[str], objects: List[str]
+        self, labels: list[str], texts: list[str], objects: list[str]
     ) -> float:
         """Calculate confidence score based on detected information"""
         score = 0.0
@@ -163,7 +161,6 @@ class ImageAnalyzer:
         score += min(len(objects) * 0.1, 0.2)
 
         return min(score, 1.0)
-
 
     def print_analysis(self, product_info: ProductInfo, image_path: str):
         """Print formatted analysis results"""
@@ -214,7 +211,7 @@ def main():
         analyzer.print_analysis(product_info, image_path)
 
         # Save results to JSON
-        os.makedirs('logs/image_analyzer', exist_ok=True)
+        os.makedirs("logs/image_analyzer", exist_ok=True)
         output_file = f"logs/image_analyzer/{Path(image_path).stem}_analysis_{int(time.time())}.json"
         with open(output_file, "w") as f:
             json.dump(

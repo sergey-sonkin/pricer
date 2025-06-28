@@ -77,7 +77,7 @@ def main():
         print_analysis(analysis, image_path)
 
         # Save results to JSON
-        os.makedirs('logs/gemini_analyzer', exist_ok=True)
+        os.makedirs("logs/gemini_analyzer", exist_ok=True)
         output_file = f"logs/gemini_analyzer/{Path(image_path).stem}_gemini_analysis_{int(time.time())}.json"
         with open(output_file, "w") as f:
             json.dump(

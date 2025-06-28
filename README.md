@@ -137,6 +137,37 @@ We maintain quality through documented test cases in `tests/test-cases.md`:
 
 Run test cases manually when making changes to ensure consistent behavior.
 
+## Code Quality
+
+We maintain high code quality standards using **Ruff** for linting and formatting:
+
+```bash
+# Automatically fix linting issues and format code
+ruff check --fix . && ruff format .
+
+# Or just commit - pre-commit hooks handle it automatically!
+git commit -m "Your changes"
+```
+
+**Pre-commit hooks** automatically run on every commit to:
+- ✅ Check and fix code style with Ruff
+- ✅ Format code consistently
+- ✅ Remove trailing whitespace
+- ✅ Fix end-of-file formatting
+- ✅ Check for merge conflicts
+
+**Setup for new contributors:**
+```bash
+# Install dev dependencies
+uv sync --dev
+
+# Install pre-commit hooks
+uv run pre-commit install
+
+# Optional: Run hooks on all files
+uv run pre-commit run --all-files
+```
+
 ## Contributing
 
 This is a collaborative project! Feel free to:

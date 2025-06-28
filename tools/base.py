@@ -11,6 +11,7 @@ from typing import Any, Callable
 @dataclass
 class ToolDefinition:
     """Definition of a tool that can be used by the agent"""
+
     name: str
     description: str
     input_schema: dict[str, Any]

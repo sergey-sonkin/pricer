@@ -78,7 +78,7 @@ def analyze_image_with_gemini(input_data: dict[str, Any]) -> str:
         return result
 
     except Exception as e:
-        raise Exception(f"Error analyzing image with Gemini: {str(e)}")
+        raise Exception(f"Error analyzing image with Gemini: {str(e)}") from e
 
 
 # Tool definition

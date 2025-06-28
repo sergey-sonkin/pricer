@@ -11,7 +11,6 @@ import os
 import sys
 import time
 from dataclasses import dataclass
-from typing import Dict, List
 from urllib.parse import quote
 
 try:
@@ -33,8 +32,8 @@ class PriceEstimate:
     most_likely_price: float
     confidence_level: str
     reasoning: str
-    factors_considered: List[str]
-    comparable_items: List[str]
+    factors_considered: list[str]
+    comparable_items: list[str]
     market_context: str
 
 
@@ -55,10 +54,10 @@ class MarketInsight:
 
     category: str
     demand_level: str
-    seasonal_factors: List[str]
+    seasonal_factors: list[str]
     pricing_strategy: str
-    best_platforms: List[str]
-    timing_recommendations: List[str]
+    best_platforms: list[str]
+    timing_recommendations: list[str]
 
 
 class AIPricingEngine:
@@ -102,14 +101,14 @@ class AIPricingEngine:
 
         prompt = f"""
         You are a pricing expert for resale marketplaces like eBay, Depop, Facebook Marketplace, and Mercari.
-        
+
         Analyze this product and provide a pricing estimate in JSON format:
-        
+
         Product: {product_description}
         Brand: {brand if brand else "Unknown"}
         Condition: {condition}
         Additional Context: {additional_context}
-        
+
         Consider:
         - Current market demand for this type of item
         - Brand premium or discount
@@ -117,7 +116,7 @@ class AIPricingEngine:
         - Seasonal factors
         - Platform preferences (eBay vs Depop vs Facebook, etc.)
         - Recent market trends
-        
+
         Respond with this exact JSON structure:
         {{
             "low_estimate": <lowest reasonable price>,
@@ -129,7 +128,7 @@ class AIPricingEngine:
             "comparable_items": ["similar item 1", "similar item 2"],
             "market_context": "Current market conditions and trends"
         }}
-        
+
         Be specific with dollar amounts and provide realistic estimates based on actual resale market conditions.
         """
 
@@ -175,7 +174,7 @@ class AIPricingEngine:
 
     def research_product_online(
         self, product_description: str, max_results: int = 10
-    ) -> List[SearchResult]:
+    ) -> list[SearchResult]:
         """
         MCP Tool: Research product pricing through web search
 
@@ -274,7 +273,7 @@ class AIPricingEngine:
 
         prompt = f"""
         Analyze the current resale market conditions for {product_type} in {current_month} {current_year}.
-        
+
         Provide market insights in this JSON format:
         {{
             "category": "{product_type}",
@@ -284,7 +283,7 @@ class AIPricingEngine:
             "best_platforms": ["platform1", "platform2"],
             "timing_recommendations": ["timing tip 1", "timing tip 2"]
         }}
-        
+
         Consider:
         - Current economic conditions
         - Seasonal demand patterns
@@ -329,8 +328,8 @@ class AIPricingEngine:
     # =============================================================================
 
     def compare_similar_products(
-        self, target_product: str, similar_products: List[str]
-    ) -> Dict[str, PriceEstimate]:
+        self, target_product: str, similar_products: list[str]
+    ) -> dict[str, PriceEstimate]:
         """
         MCP Tool: Compare pricing for similar products
 
@@ -366,7 +365,7 @@ class AIPricingEngine:
 
     def analyze_condition_impact(
         self, product_description: str, brand: str | None = None
-    ) -> Dict[str, PriceEstimate]:
+    ) -> dict[str, PriceEstimate]:
         """
         MCP Tool: Analyze how condition affects pricing
 

@@ -10,27 +10,29 @@ This is the core analyzer class, separated from CLI functionality.
 import json
 import os
 from dataclasses import dataclass
-from typing import List, Optional
+from typing import Optional
 
 try:
     import google.genai as genai
     from PIL import Image
 except ImportError as e:
-    raise ImportError(f"Missing dependencies: {e}. Install with: uv add google-genai pillow")
+    raise ImportError(
+        f"Missing dependencies: {e}. Install with: uv add google-genai pillow"
+    ) from e
 
 
 @dataclass
 class ProductAnalysis:
     """AI-powered product analysis results"""
-    
+
     product_description: str
     brand: Optional[str]
     product_type: str
     condition: Optional[str]
-    notable_features: List[str]
+    notable_features: list[str]
     market_category: str
     confidence_level: str
-    pricing_factors: List[str]
+    pricing_factors: list[str]
     raw_response: str
 
 
@@ -58,7 +60,7 @@ class GeminiAnalyzer:
         try:
             self.client = genai.Client(api_key=api_key)
         except Exception as e:
-            raise RuntimeError(f"Failed to initialize Gemini client: {e}")
+            raise RuntimeError(f"Failed to initialize Gemini client: {e}") from e
 
     def analyze_image(self, image_path: str) -> ProductAnalysis:
         """
@@ -105,8 +107,7 @@ class GeminiAnalyzer:
         try:
             # Generate analysis using Gemini
             response = self.client.models.generate_content(
-                model="gemini-1.5-flash",
-                contents=[prompt, image]
+                model="gemini-1.5-flash", contents=[prompt, image]
             )
 
             if not response.text:
@@ -114,9 +115,11 @@ class GeminiAnalyzer:
 
             # Parse JSON response (clean up any markdown formatting)
             response_text = response.text.strip()
-            if response_text.startswith('```json'):
-                response_text = response_text.replace('```json', '').replace('```', '').strip()
-            
+            if response_text.startswith("```json"):
+                response_text = (
+                    response_text.replace("```json", "").replace("```", "").strip()
+                )
+
             try:
                 analysis_data = json.loads(response_text)
             except json.JSONDecodeError:

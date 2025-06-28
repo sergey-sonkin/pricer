@@ -7,7 +7,7 @@ This directory contains output files from various PickPrice scripts.
 ```
 logs/
 ├── image_analyzer/        # Google Vision API analysis results
-├── gemini_analyzer/       # Gemini AI analysis results  
+├── gemini_analyzer/       # Gemini AI analysis results
 ├── price_researcher/      # Web scraping price research
 ├── ebay_api_researcher/   # eBay API research results
 ├── ai_pricing_engine/     # AI pricing estimates (future)

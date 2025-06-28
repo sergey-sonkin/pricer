@@ -11,7 +11,6 @@ import os
 import sys
 import time
 from dataclasses import dataclass
-from typing import Dict, List
 
 try:
     import requests
@@ -46,10 +45,10 @@ class eBayPriceAnalysis:
     search_terms: str
     total_sold: int
     total_active: int
-    sold_listings: List[eBayListing]
-    active_listings: List[eBayListing]
-    price_statistics: Dict[str, float]
-    market_insights: List[str]
+    sold_listings: list[eBayListing]
+    active_listings: list[eBayListing]
+    price_statistics: dict[str, float]
+    market_insights: list[str]
     confidence_score: float
 
 
@@ -121,7 +120,7 @@ class eBayAPIResearcher:
 
     def _get_sold_listings(
         self, keywords: str, category_id: str | None = None, max_results: int = 50
-    ) -> List[eBayListing]:
+    ) -> list[eBayListing]:
         """Get sold/completed listings using Finding API"""
         listings = []
 
@@ -191,7 +190,7 @@ class eBayAPIResearcher:
 
     def _get_active_listings(
         self, keywords: str, category_id: str | None = None, max_results: int = 25
-    ) -> List[eBayListing]:
+    ) -> list[eBayListing]:
         """Get current active listings using Finding API"""
         listings = []
 
@@ -261,12 +260,11 @@ class eBayAPIResearcher:
 
         return listings
 
-    def _parse_ebay_item(self, item: Dict, is_sold: bool = False) -> eBayListing | None:
+    def _parse_ebay_item(self, item: dict, is_sold: bool = False) -> eBayListing | None:
         """Parse eBay API item response into eBayListing"""
         try:
             # Extract basic info
             title = item.get("title", [""])[0]
-            item_id = item.get("itemId", [""])[0]
 
             # Extract price info
             selling_status = item.get("sellingStatus", [{}])[0]
@@ -326,8 +324,8 @@ class eBayAPIResearcher:
     def _analyze_ebay_data(
         self,
         search_terms: str,
-        sold_listings: List[eBayListing],
-        active_listings: List[eBayListing],
+        sold_listings: list[eBayListing],
+        active_listings: list[eBayListing],
     ) -> eBayPriceAnalysis:
         """Analyze eBay data and generate insights"""
 
@@ -400,10 +398,10 @@ class eBayAPIResearcher:
 
     def _generate_market_insights(
         self,
-        stats: Dict[str, float],
-        sold_listings: List[eBayListing],
-        active_listings: List[eBayListing],
-    ) -> List[str]:
+        stats: dict[str, float],
+        sold_listings: list[eBayListing],
+        active_listings: list[eBayListing],
+    ) -> list[str]:
         """Generate actionable market insights"""
         insights = []
 
@@ -435,7 +433,11 @@ class eBayAPIResearcher:
 
         # Listing type analysis
         auction_count = len(
-            [l for l in sold_listings if "auction" in l.listing_type.lower()]
+            [
+                listing
+                for listing in sold_listings
+                if "auction" in listing.listing_type.lower()
+            ]
         )
         if auction_count > 0 and len(sold_listings) > 0:
             auction_pct = (auction_count / len(sold_listings)) * 100

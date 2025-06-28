@@ -1,21 +1,21 @@
 import json
 import os
 import sys
-from typing import Any, Callable, List, Tuple
+from typing import Any, Callable
 
 from anthropic import Anthropic
 
 # Add tools directory to path
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-from tools import ToolDefinition, ALL_TOOLS
+from tools import ALL_TOOLS, ToolDefinition
 
 
 class Agent:
     def __init__(
         self,
         client: Anthropic,
-        get_user_message: Callable[[], Tuple[str, bool]],
-        tools: List[ToolDefinition],
+        get_user_message: Callable[[], tuple[str, bool]],
+        tools: list[ToolDefinition],
     ):
         self.client = client
         self.get_user_message = get_user_message
@@ -89,7 +89,7 @@ class Agent:
                 "is_error": True,
             }
 
-    def _run_inference(self, conversation: List[dict[str, Any]]):
+    def _run_inference(self, conversation: list[dict[str, Any]]):
         anthropic_tools = []
         for tool in self.tools:
             anthropic_tools.append(
@@ -109,9 +109,7 @@ class Agent:
         return message
 
 
-
-
-def get_user_message() -> Tuple[str, bool]:
+def get_user_message() -> tuple[str, bool]:
     try:
         user_input = input()
         return user_input, True
@@ -121,8 +119,8 @@ def get_user_message() -> Tuple[str, bool]:
 
 def new_agent(
     client: Anthropic,
-    get_user_message_func: Callable[[], Tuple[str, bool]],
-    tools: List[ToolDefinition],
+    get_user_message_func: Callable[[], tuple[str, bool]],
+    tools: list[ToolDefinition],
 ) -> Agent:
     return Agent(client, get_user_message_func, tools)
 

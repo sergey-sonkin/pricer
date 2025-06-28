@@ -13,8 +13,8 @@ This document contains test cases for regression testing the PickPrice AI agent.
 
 ### TC-001: Basic Product Image Analysis
 
-**Date Recorded:** 2024-06-28  
-**Input:** `Please analyze this image: examples/cat.jpeg`  
+**Date Recorded:** 2024-06-28
+**Input:** `Please analyze this image: examples/cat.jpeg`
 **Expected Behavior:** Agent should use the Gemini analyzer tool to identify the cat toy/product and provide structured analysis
 
 **Expected Tool Call:**
@@ -68,8 +68,8 @@ A used, gray and white plastic cat litter box.  The litter box appears to be in 
 
 ### TC-002: File System Navigation
 
-**Date Recorded:** 2024-06-28  
-**Input:** `What files are in the examples directory?`  
+**Date Recorded:** 2024-06-28
+**Input:** `What files are in the examples directory?`
 **Expected Behavior:** Agent should use list_files tool to show directory contents
 
 **Expected Tool Call:**
@@ -92,8 +92,8 @@ cat.jpeg
 
 ### TC-003: Code Exploration
 
-**Date Recorded:** 2024-06-28  
-**Input:** `Show me how the Gemini analyzer tool is implemented`  
+**Date Recorded:** 2024-06-28
+**Input:** `Show me how the Gemini analyzer tool is implemented`
 **Expected Behavior:** Agent should use read_file tool to examine relevant files
 
 **Expected Tool Call:**
@@ -115,13 +115,13 @@ read_file({"path": "tools/gemini_analyzer.py"})
 
 ### TC-004: Multi-step Product Analysis Workflow
 
-**Date Recorded:** 2024-06-28  
-**Input:** `I want to sell this cat toy. First analyze the image examples/cat.jpeg, then tell me what marketplace would be best for selling it.`  
+**Date Recorded:** 2024-06-28
+**Input:** `I want to sell this cat toy. First analyze the image examples/cat.jpeg, then tell me what marketplace would be best for selling it.`
 **Expected Behavior:** Agent should chain multiple operations to provide comprehensive selling advice
 
 **Expected Flow:**
 1. Use analyze_image_with_gemini tool
-2. Interpret results 
+2. Interpret results
 3. Provide marketplace recommendations based on analysis
 4. Suggest pricing strategy
 
@@ -140,19 +140,19 @@ read_file({"path": "tools/gemini_analyzer.py"})
 ## Proposed Additional Test Cases
 
 ### TC-005: Error Handling - Invalid Image Path
-**Input:** `Please analyze this image: nonexistent.jpg`  
+**Input:** `Please analyze this image: nonexistent.jpg`
 **Purpose:** Test error handling when image doesn't exist
 
 ### TC-006: Complex Pricing Question
-**Input:** `What factors should I consider when pricing vintage electronics for resale?`  
+**Input:** `What factors should I consider when pricing vintage electronics for resale?`
 **Purpose:** Test general knowledge without tool usage
 
 ### TC-007: Mixed Request
-**Input:** `List the files in the scripts directory and explain what the gemini_analyzer.py script does`  
+**Input:** `List the files in the scripts directory and explain what the gemini_analyzer.py script does`
 **Purpose:** Test multiple tool usage in sequence
 
 ### TC-008: Architecture Understanding
-**Input:** `Explain the difference between the lib/, tools/, and scripts/ directories in this project`  
+**Input:** `Explain the difference between the lib/, tools/, and scripts/ directories in this project`
 **Purpose:** Test agent's understanding of the codebase structure
 
 ---
