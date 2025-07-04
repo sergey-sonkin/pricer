@@ -44,16 +44,6 @@ python agent/main.py
 4. `ai_pricing_engine.py` - Advanced AI-powered pricing analysis
 5. `ebay_api_researcher.py` - eBay marketplace research and pricing data
 
-## Current Status
-
-🤖 **AI Agent Phase** - Claude as the main pricing agent with clean modular tools
-
-🏗️ **Clean Architecture** - Separated library code, tools, and CLI interfaces
-
-🧪 **Quality Assurance** - Documented test cases for regression testing
-
-🔬 **Proof-of-Concept Phase** - Building simple scripts to validate ideas
-
 ## Quick Start
 
 ```bash
@@ -150,6 +140,7 @@ git commit -m "Your changes"
 ```
 
 **Pre-commit hooks** automatically run on every commit to:
+
 - ✅ Check and fix code style with Ruff
 - ✅ Format code consistently
 - ✅ Remove trailing whitespace
@@ -157,6 +148,7 @@ git commit -m "Your changes"
 - ✅ Check for merge conflicts
 
 **Setup for new contributors:**
+
 ```bash
 # Install dev dependencies
 uv sync --dev

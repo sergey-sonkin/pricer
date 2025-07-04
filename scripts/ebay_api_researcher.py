@@ -47,7 +47,7 @@ class eBayPriceAnalysis:
     total_active: int
     sold_listings: list[eBayListing]
     active_listings: list[eBayListing]
-    price_statistics: dict[str, float]
+    price_statistics: dict[str, float | int]
     market_insights: list[str]
     confidence_score: float
 
@@ -60,33 +60,95 @@ class eBayAPIResearcher:
         load_dotenv()
 
         # eBay API credentials
-        self.app_id = os.getenv("EBAY_APP_ID")
-        self.cert_id = os.getenv("EBAY_CERT_ID")
-        self.dev_id = os.getenv("EBAY_DEV_ID")
+        self.use_sandbox = os.getenv("EBAY_USE_SANDBOX", "true").lower() == "true"
+
+        if self.use_sandbox:
+            self.app_id = os.getenv("EBAY_SANDBOX_APP_ID")
+            self.cert_id = os.getenv("EBAY_SANDBOX_CERT_ID")
+            self.dev_id = os.getenv("EBAY_SANDBOX_DEV_ID")
+            self.client_secret = os.getenv("EBAY_SANDBOX_CLIENT_SECRET")
+        else:
+            self.app_id = os.getenv("EBAY_PROD_APP_ID")
+            self.cert_id = os.getenv("EBAY_PROD_CERT_ID")
+            self.dev_id = os.getenv("EBAY_PROD_DEV_ID")
+            self.client_secret = os.getenv("EBAY_PROD_CLIENT_SECRET")
 
         if not self.app_id:
-            print("❌ eBay API credentials not found!")
+            env_type = "SANDBOX" if self.use_sandbox else "PROD"
+            print(f"❌ eBay {env_type} API credentials not found!")
             print("You need to:")
             print("1. Sign up at: https://developer.ebay.com/")
             print("2. Create an app to get App ID (Client ID)")
             print("3. Set environment variables:")
-            print("   export EBAY_APP_ID='your_app_id'")
-            print("   export EBAY_CERT_ID='your_cert_id'")
-            print("   export EBAY_DEV_ID='your_dev_id'")
+            if self.use_sandbox:
+                print("   export EBAY_SANDBOX_APP_ID='your_sandbox_app_id'")
+                print(
+                    "   export EBAY_SANDBOX_CLIENT_SECRET='your_sandbox_client_secret'"
+                )
+                print("   export EBAY_SANDBOX_CERT_ID='your_sandbox_cert_id'")
+                print("   export EBAY_SANDBOX_DEV_ID='your_sandbox_dev_id'")
+            else:
+                print("   export EBAY_PROD_APP_ID='your_prod_app_id'")
+                print("   export EBAY_PROD_CLIENT_SECRET='your_prod_client_secret'")
+                print("   export EBAY_PROD_CERT_ID='your_prod_cert_id'")
+                print("   export EBAY_PROD_DEV_ID='your_prod_dev_id'")
             sys.exit(1)
 
-        # API endpoints
-        self.finding_api_url = "https://svcs.ebay.com/services/search/FindingService/v1"
-        self.browse_api_url = "https://api.ebay.com/buy/browse/v1"
+        # API endpoints (sandbox or production) - Using Browse API (Finding API deprecated Feb 2025)
+        if self.use_sandbox:
+            self.browse_api_url = "https://api.sandbox.ebay.com/buy/browse/v1"
+            self.oauth_url = "https://api.sandbox.ebay.com/identity/v1/oauth2/token"
+            print(
+                f"🧪 Using eBay Sandbox Browse API with App ID: {self.app_id[:10]}..."
+            )
+        else:
+            self.browse_api_url = "https://api.ebay.com/buy/browse/v1"
+            self.oauth_url = "https://api.ebay.com/identity/v1/oauth2/token"
+            print(
+                f"🚀 Using eBay Production Browse API with App ID: {self.app_id[:10]}..."
+            )
 
-        # Headers for API requests
-        self.finding_headers = {
-            "X-EBAY-SOA-OPERATION-NAME": "findCompletedItems",
-            "X-EBAY-SOA-SERVICE-VERSION": "1.13.0",
-            "X-EBAY-SOA-REQUEST-DATA-FORMAT": "JSON",
-            "X-EBAY-SOA-GLOBAL-ID": "EBAY-US",
+        # Get OAuth token for Browse API
+        self.access_token = self._get_oauth_token()
+
+        # Headers for Browse API requests
+        self.browse_headers = {
+            "Authorization": f"Bearer {self.access_token}",
             "Content-Type": "application/json",
+            "X-EBAY-C-MARKETPLACE-ID": "EBAY_US",
         }
+
+    def _get_oauth_token(self) -> str:
+        """Get OAuth 2.0 access token for Browse API"""
+        try:
+            import base64
+
+            # Create basic auth header
+            credentials = f"{self.app_id}:{self.client_secret}"
+            encoded_credentials = base64.b64encode(credentials.encode()).decode()
+
+            headers = {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Authorization": f"Basic {encoded_credentials}",
+            }
+
+            data = {
+                "grant_type": "client_credentials",
+                "scope": "https://api.ebay.com/oauth/api_scope",
+            }
+
+            response = requests.post(
+                self.oauth_url, headers=headers, data=data, timeout=30
+            )
+            response.raise_for_status()
+
+            token_data = response.json()
+            print("    🔑 OAuth token obtained successfully")
+            return token_data["access_token"]
+
+        except Exception as e:
+            print(f"❌ Failed to get OAuth token: {e}")
+            sys.exit(1)
 
     def research_product(
         self, product_description: str, category_id: str | None = None
@@ -103,13 +165,17 @@ class eBayAPIResearcher:
         """
         print(f"🔍 Researching '{product_description}' on eBay...")
 
-        # 1. Get sold listings (completed items)
-        print("  📦 Fetching sold listings...")
-        sold_listings = self._get_sold_listings(product_description, category_id)
-
-        # 2. Get current active listings
+        # 1. Get current active listings (Browse API doesn't provide sold listings directly)
         print("  🛒 Fetching active listings...")
-        active_listings = self._get_active_listings(product_description, category_id)
+        active_listings = self._get_active_listings_browse(
+            product_description, category_id
+        )
+
+        # Note: Browse API doesn't provide sold listings - would need different eBay API for historical data
+        print(
+            "  📦 Sold listings not available via Browse API (requires different endpoint)"
+        )
+        sold_listings = []
 
         # 3. Analyze the data
         analysis = self._analyze_ebay_data(
@@ -118,134 +184,55 @@ class eBayAPIResearcher:
 
         return analysis
 
-    def _get_sold_listings(
+    def _get_active_listings_browse(
         self, keywords: str, category_id: str | None = None, max_results: int = 50
     ) -> list[eBayListing]:
-        """Get sold/completed listings using Finding API"""
+        """Get active listings using Browse API"""
         listings = []
 
         try:
-            # Build request payload
-            payload = {
-                "findCompletedItemsRequest": {
-                    "keywords": keywords,
-                    "itemFilter": [
-                        {"name": "SoldItemsOnly", "value": "true"},
-                        {"name": "ListingType", "value": ["FixedPrice", "Auction"]},
-                    ],
-                    "sortOrder": "EndTimeSoonest",
-                    "paginationInput": {"entriesPerPage": min(max_results, 100)},
-                }
+            # Build search URL
+            search_url = f"{self.browse_api_url}/item_summary/search"
+
+            # Build query parameters
+            params = {
+                "q": keywords,
+                "limit": min(max_results, 200),  # Browse API max is 200
+                "sort": "price",
+                "filter": "conditionIds:{1000|3000}",  # New and Used
             }
 
-            # Add category filter if provided
             if category_id:
-                payload["findCompletedItemsRequest"]["categoryId"] = [category_id]
+                params["category_ids"] = category_id
 
             # Make API request
-            response = requests.post(
-                self.finding_api_url,
-                headers=self.finding_headers,
-                json=payload,
+            response = requests.get(
+                search_url,
+                headers=self.browse_headers,
+                params=params,
                 timeout=30,
             )
             response.raise_for_status()
 
             data = response.json()
 
-            # Check for API errors
-            if (
-                data.get("findCompletedItemsResponse", [{}])[0].get("ack", [""])[0]
-                != "Success"
-            ):
-                error_msg = data.get("findCompletedItemsResponse", [{}])[0].get(
-                    "errorMessage", {}
-                )
-                print(f"    ❌ eBay API error: {error_msg}")
-                return listings
+            # Debug: Print API status
+            total_items = data.get("total", 0)
+            print(f"    📊 API returned {total_items} active items")
 
             # Parse results
-            search_result = data.get("findCompletedItemsResponse", [{}])[0].get(
-                "searchResult", [{}]
-            )[0]
-            items = search_result.get("item", [])
+            items = data.get("itemSummaries", [])
 
             for item in items:
                 try:
-                    listing = self._parse_ebay_item(item, is_sold=True)
+                    listing = self._parse_browse_item(item)
                     if listing:
                         listings.append(listing)
-                except Exception:
-                    # Skip items that can't be parsed
-                    continue
-
-            print(f"    ✅ Found {len(listings)} sold listings")
-
-        except requests.exceptions.RequestException as e:
-            print(f"    ❌ Error fetching sold listings: {e}")
-        except Exception as e:
-            print(f"    ❌ Unexpected error: {e}")
-
-        return listings
-
-    def _get_active_listings(
-        self, keywords: str, category_id: str | None = None, max_results: int = 25
-    ) -> list[eBayListing]:
-        """Get current active listings using Finding API"""
-        listings = []
-
-        try:
-            # Build request payload for active listings
-            self.finding_headers["X-EBAY-SOA-OPERATION-NAME"] = "findItemsByKeywords"
-
-            payload = {
-                "findItemsByKeywordsRequest": {
-                    "keywords": keywords,
-                    "itemFilter": [
-                        {"name": "ListingType", "value": ["FixedPrice", "Auction"]},
-                        {"name": "Condition", "value": ["New", "Used"]},
-                    ],
-                    "sortOrder": "PricePlusShippingLowest",
-                    "paginationInput": {"entriesPerPage": min(max_results, 100)},
-                }
-            }
-
-            if category_id:
-                payload["findItemsByKeywordsRequest"]["categoryId"] = [category_id]
-
-            response = requests.post(
-                self.finding_api_url,
-                headers=self.finding_headers,
-                json=payload,
-                timeout=30,
-            )
-            response.raise_for_status()
-
-            data = response.json()
-
-            # Check for API errors
-            if (
-                data.get("findItemsByKeywordsResponse", [{}])[0].get("ack", [""])[0]
-                != "Success"
-            ):
-                error_msg = data.get("findItemsByKeywordsResponse", [{}])[0].get(
-                    "errorMessage", {}
-                )
-                print(f"    ❌ eBay API error: {error_msg}")
-                return listings
-
-            # Parse results
-            search_result = data.get("findItemsByKeywordsResponse", [{}])[0].get(
-                "searchResult", [{}]
-            )[0]
-            items = search_result.get("item", [])
-
-            for item in items:
-                try:
-                    listing = self._parse_ebay_item(item, is_sold=False)
-                    if listing:
-                        listings.append(listing)
-                except Exception:
+                        print(
+                            f"    🛒 Active: ${listing.price:.2f} - {listing.title[:50]}..."
+                        )
+                except Exception as e:
+                    print(f"    ⚠️ Failed to parse item: {e}")
                     continue
 
             print(f"    ✅ Found {len(listings)} active listings")
@@ -255,53 +242,43 @@ class eBayAPIResearcher:
         except Exception as e:
             print(f"    ❌ Unexpected error: {e}")
 
-        # Reset header for next request
-        self.finding_headers["X-EBAY-SOA-OPERATION-NAME"] = "findCompletedItems"
-
         return listings
 
-    def _parse_ebay_item(self, item: dict, is_sold: bool = False) -> eBayListing | None:
-        """Parse eBay API item response into eBayListing"""
+    def _parse_browse_item(self, item: dict) -> eBayListing | None:
+        """Parse Browse API item response into eBayListing"""
         try:
-            # Extract basic info
-            title = item.get("title", [""])[0]
+            # Extract basic info from Browse API format
+            title = item.get("title", "")
 
             # Extract price info
-            selling_status = item.get("sellingStatus", [{}])[0]
-            current_price = selling_status.get("currentPrice", [{}])[0]
-            price = float(current_price.get("@currencyId", "0"))
-            currency = current_price.get("@currencyId", "USD")
+            price_info = item.get("price", {})
+            price = float(price_info.get("value", "0"))
+            currency = price_info.get("currency", "USD")
 
             # Extract condition
-            condition_info = item.get("condition", [{}])[0]
-            condition = condition_info.get("conditionDisplayName", ["Unknown"])[0]
+            condition_info = item.get("condition", "")
+            condition = condition_info if condition_info else "Unknown"
 
-            # Extract listing info
-            listing_info = item.get("listingInfo", [{}])[0]
-            listing_type = listing_info.get("listingType", ["FixedPrice"])[0]
-            end_time = listing_info.get("endTime", [""])[0]
+            # Browse API items are always active listings
+            listing_type = "FixedPrice"  # Browse API primarily shows Buy It Now items
 
             # Extract shipping
-            shipping_info = item.get("shippingInfo", [{}])[0]
+            shipping_info = item.get("shippingOptions", [])
             shipping_cost = None
-            if shipping_info.get("shippingServiceCost"):
-                shipping_cost = float(
-                    shipping_info["shippingServiceCost"][0].get("__value__", 0)
-                )
+            if shipping_info and len(shipping_info) > 0:
+                shipping_cost_info = shipping_info[0].get("shippingCost", {})
+                if shipping_cost_info:
+                    shipping_cost = float(shipping_cost_info.get("value", "0"))
 
-            # Build URLs
-            item_url = item.get("viewItemURL", [""])[0]
+            # URLs and image
+            item_url = item.get("itemWebUrl", "")
+            image_url = item.get("image", {}).get("imageUrl", "")
 
-            # Extract image
-            image_url = None
-            if item.get("galleryURL"):
-                image_url = item["galleryURL"][0]
-
-            # Extract seller info
-            seller_info = item.get("sellerInfo", [{}])[0]
+            # Seller info
+            seller_info = item.get("seller", {})
             seller_feedback = None
-            if seller_info.get("feedbackScore"):
-                seller_feedback = int(seller_info["feedbackScore"][0])
+            if seller_info.get("feedbackPercentage"):
+                seller_feedback = int(float(seller_info["feedbackPercentage"]))
 
             return eBayListing(
                 title=title,
@@ -309,16 +286,16 @@ class eBayAPIResearcher:
                 currency=currency,
                 condition=condition,
                 listing_type=listing_type,
-                end_time=end_time if not is_sold else None,
-                sold_date=end_time if is_sold else None,
+                end_time=None,  # Browse API doesn't provide end time for active listings
+                sold_date=None,
                 shipping_cost=shipping_cost,
                 item_url=item_url,
                 image_url=image_url,
                 seller_feedback=seller_feedback,
             )
 
-        except (KeyError, ValueError, IndexError):
-            # Skip items that can't be parsed properly
+        except (KeyError, ValueError, TypeError) as e:
+            print(f"    🔍 Parse error details: {e}")
             return None
 
     def _analyze_ebay_data(
@@ -398,7 +375,7 @@ class eBayAPIResearcher:
 
     def _generate_market_insights(
         self,
-        stats: dict[str, float],
+        stats: dict[str, float | int],
         sold_listings: list[eBayListing],
         active_listings: list[eBayListing],
     ) -> list[str]:
@@ -428,7 +405,7 @@ class eBayAPIResearcher:
             conditions[listing.condition] = conditions.get(listing.condition, 0) + 1
 
         if conditions:
-            top_condition = max(conditions, key=conditions.get)
+            top_condition = max(conditions.keys(), key=lambda k: conditions[k])
             insights.append(f"Most common condition sold: {top_condition}")
 
         # Listing type analysis
