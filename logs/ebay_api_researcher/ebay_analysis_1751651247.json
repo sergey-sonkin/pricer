@@ -1,0 +1,21 @@
+{
+  "search_terms": "--help",
+  "total_sold": 0,
+  "total_active": 0,
+  "price_statistics": {
+    "sold_min": 0.0,
+    "sold_max": 0.0,
+    "sold_avg": 0.0,
+    "sold_median": 0.0,
+    "sold_count": 0,
+    "active_min": 0.0,
+    "active_max": 0.0,
+    "active_avg": 0.0,
+    "active_median": 0.0,
+    "active_count": 0
+  },
+  "market_insights": [],
+  "confidence_score": 0.0,
+  "sold_listings": [],
+  "active_listings": []
+}

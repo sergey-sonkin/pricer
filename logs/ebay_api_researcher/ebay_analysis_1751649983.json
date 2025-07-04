@@ -1,0 +1,322 @@
+{
+  "search_terms": "test",
+  "total_sold": 0,
+  "total_active": 50,
+  "price_statistics": {
+    "sold_min": 0,
+    "sold_max": 0,
+    "sold_avg": 0,
+    "sold_median": 0,
+    "sold_count": 0,
+    "active_min": 0.99,
+    "active_max": 3103016.4,
+    "active_avg": 187153.9938,
+    "active_median": 20.98,
+    "active_count": 50
+  },
+  "market_insights": [],
+  "confidence_score": 0.2,
+  "sold_listings": [],
+  "active_listings": [
+    {
+      "title": "Blackpink Cards Test - Single Card Test - 1749083438",
+      "price": 2.95,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Blackpink-Cards-Test-Single-Card-Test-1749083438/110587648549?src=urllib&_skw=test&hash=item19bf899a25:i:110587648549"
+    },
+    {
+      "title": "\u00a0101 jacket test",
+      "price": 60.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/101-jacket-test/110587649467?src=urllib&_skw=test&hash=item19bf899dbb:i:110587649467"
+    },
+    {
+      "title": "Test listing - do not bid or buy - awesome Apple watch test 2",
+      "price": 0.99,
+      "condition": "New with tags",
+      "url": "https://cgi.sandbox.ebay.com/itm/Test-listing-do-not-bid-or-buy-awesome-Apple-watch-test-2/110587653746?src=urllib&_skw=test&hash=item19bf89ae72:i:110587653746"
+    },
+    {
+      "title": "\u00a0101 Metafield test (Copy)",
+      "price": 3103016.4,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/101-Metafield-test-Copy/110587655991?src=urllib&_skw=test&hash=item19bf89b737:i:110587655991"
+    },
+    {
+      "title": "Test Printed Skirt",
+      "price": 200.99,
+      "condition": "Brand New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Test-Printed-Skirt/110587656001?src=urllib&_skw=test&hash=item19bf89b741:i:110587656001"
+    },
+    {
+      "title": "Product to test categories",
+      "price": 5000.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Product-to-test-categories/110587681009?src=urllib&_skw=test&hash=item19bf8a18f1:i:110587681009"
+    },
+    {
+      "title": "Copy of Copy paste 123 test121 july 5",
+      "price": 88.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Copy-of-Copy-paste-123-test121-july-5/110587681019?src=urllib&_skw=test&hash=item19bf8a18fb:i:110587681019"
+    },
+    {
+      "title": "Blunt added image test",
+      "price": 919.95,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Blunt-added-image-test/110587681031?src=urllib&_skw=test&hash=item19bf8a1907:i:110587681031"
+    },
+    {
+      "title": "iphone product test (Copy)",
+      "price": 1.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/iphone-product-test-Copy/110587681730?src=urllib&_skw=test&hash=item19bf8a1bc2:i:110587681730"
+    },
+    {
+      "title": "For Test",
+      "price": 500.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/For-Test/110587681784?src=urllib&_skw=test&hash=item19bf8a1bf8:i:110587681784"
+    },
+    {
+      "title": "Image issue test",
+      "price": 9999.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Image-issue-test/110587681796?src=urllib&_skw=test&hash=item19bf8a1c04:i:110587681796"
+    },
+    {
+      "title": "Single Test Listing - Sandbox - 1749495162",
+      "price": 15.99,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Single-Test-Listing-Sandbox-1749495162/110587707183?src=urllib&_skw=test&hash=item19bf8a7f2f:i:110587707183"
+    },
+    {
+      "title": "CSV Test Item 2 #186989",
+      "price": 30.99,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/CSV-Test-Item-2-186989/110587707185?src=urllib&_skw=test&hash=item19bf8a7f31:i:110587707185"
+    },
+    {
+      "title": "Test price",
+      "price": 27500.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Test-price/110587713185?src=urllib&_skw=test&hash=item19bf8a96a1:i:110587713185"
+    },
+    {
+      "title": "\u00a0101 Metafield test test",
+      "price": 18.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/101-Metafield-test-test/110587713241?src=urllib&_skw=test&hash=item19bf8a96d9:i:110587713241"
+    },
+    {
+      "title": "Barcode test1",
+      "price": 50.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Barcode-test1/110587713270?src=urllib&_skw=test&hash=item19bf8a96f6:i:110587713270"
+    },
+    {
+      "title": "emoji test",
+      "price": 10.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/emoji-test/110587713373?src=urllib&_skw=test&hash=item19bf8a975d:i:110587713373"
+    },
+    {
+      "title": "New test product, wrong metafield",
+      "price": 5.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/New-test-product-wrong-metafield/110587713976?src=urllib&_skw=test&hash=item19bf8a99b8:i:110587713976"
+    },
+    {
+      "title": "test Scarlet Tanager",
+      "price": 100.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/test-Scarlet-Tanager/110587713980?src=urllib&_skw=test&hash=item19bf8a99bc:i:110587713980"
+    },
+    {
+      "title": "Test multiple location",
+      "price": 555.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Test-multiple-location/110587715565?src=urllib&_skw=test&hash=item19bf8a9fed:i:110587715565"
+    },
+    {
+      "title": "Test listing - do not bid or buy - Juicy Pear Jelly Beans 3.5 oz",
+      "price": 3.99,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Test-listing-do-not-bid-or-buy-Juicy-Pear-Jelly-Beans-3-5-oz/110587720572?src=urllib&_skw=test&hash=item19bf8ab37c:i:110587720572"
+    },
+    {
+      "title": "Test collection",
+      "price": 3000.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Test-collection/110587741066?src=urllib&_skw=test&hash=item19bf8b038a:i:110587741066"
+    },
+    {
+      "title": "test hehe",
+      "price": 14.87,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/test-hehe/110587745299?src=urllib&_skw=test&hash=item19bf8b1413:g:5jsAAOSwsSFoSsLp"
+    },
+    {
+      "title": "\u00a0101 Metafield test",
+      "price": 100.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/101-Metafield-test/110587753603?src=urllib&_skw=test&hash=item19bf8b3483:i:110587753603"
+    },
+    {
+      "title": "Test Yellow Sofa",
+      "price": 1.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Test-Yellow-Sofa/110587851326?src=urllib&_skw=test&hash=item19bf8cb23e:i:110587851326"
+    },
+    {
+      "title": "TEST ITEM - NEW C 3 Pack Designed for iPhone 14, iPhone 13, iPhone 13 Pro Screen",
+      "price": 5.89,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-NEW-C-3-Pack-Designed-for-iPhone-14-iPhone-13-iPhone-13-Pro-Screen/110587868006?src=urllib&_skw=test&hash=item19bf8cf366:i:110587868006"
+    },
+    {
+      "title": "TEST ITEM - LEGO Botanicals Lucky Bamboo Building Set - Artificial Plant for Ind",
+      "price": 23.95,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-LEGO-Botanicals-Lucky-Bamboo-Building-Set-Artificial-Plant-for-Ind/110587868915?src=urllib&_skw=test&hash=item19bf8cf6f3:i:110587868915"
+    },
+    {
+      "title": "TEST ITEM - LED Desk Lamp for Office Home, Eye-Caring Desk Light with Stepless D",
+      "price": 20.98,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-LED-Desk-Lamp-for-Office-Home-Eye-Caring-Desk-Light-with-Stepless-D/110587869041?src=urllib&_skw=test&hash=item19bf8cf771:i:110587869041"
+    },
+    {
+      "title": "TEST ITEM - MDOZQ Office Desk Accessories 2pcs Computer Monitor Memo Board Messa",
+      "price": 6.98,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-MDOZQ-Office-Desk-Accessories-2pcs-Computer-Monitor-Memo-Board-Messa/110587869153?src=urllib&_skw=test&hash=item19bf8cf7e1:i:110587869153"
+    },
+    {
+      "title": "TEST ITEM - Amazon Basics Stapler with 1000 Staples, Office Stapler, 25 Sheet Ca",
+      "price": 6.29,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-Amazon-Basics-Stapler-with-1000-Staples-Office-Stapler-25-Sheet-Ca/110587869263?src=urllib&_skw=test&hash=item19bf8cf84f:i:110587869263"
+    },
+    {
+      "title": "TEST ITEM - Swingline Stapler Value Pack, 20 Sheet Capacity, Jam Free, includes ",
+      "price": 8.24,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-Swingline-Stapler-Value-Pack-20-Sheet-Capacity-Jam-Free-includes/110587869937?src=urllib&_skw=test&hash=item19bf8cfaf1:i:110587869937"
+    },
+    {
+      "title": "Variational Test Product-Yellow TEST",
+      "price": 18.44,
+      "condition": "New \u2013 Open box",
+      "url": "https://cgi.sandbox.ebay.com/itm/Variational-Test-Product-Yellow-TEST/110587880661?src=urllib&_skw=test&hash=item19bf8d24d5:i:110587880661"
+    },
+    {
+      "title": "Test Item from API",
+      "price": 49.99,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Test-Item-from-API/110587908757?src=urllib&_skw=test&hash=item19bf8d9295:i:110587908757"
+    },
+    {
+      "title": "Real Image Display Test Product 1750592967833_8shhxh",
+      "price": 49.99,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Real-Image-Display-Test-Product-1750592967833-8shhxh/110587908771?src=urllib&_skw=test&hash=item19bf8d92a3:g:gn4AAeSwf~NoV-3M"
+    },
+    {
+      "title": "test12345",
+      "price": 11.13,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/test12345/110587919014?src=urllib&_skw=test&hash=item19bf8dbaa6:i:110587919014"
+    },
+    {
+      "title": "revise Sanboxd test Apr24",
+      "price": 20.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/revise-Sanboxd-test-Apr24/110587943856?src=urllib&_skw=test&hash=item19bf8e1bb0:i:110587943856"
+    },
+    {
+      "title": " 101 jacket test hello",
+      "price": 60.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/101-jacket-test-hello/110587981286?src=urllib&_skw=test&hash=item19bf8eade6:i:110587981286"
+    },
+    {
+      "title": "\u00a0101 Metafield test (Copy)",
+      "price": 3103016.4,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/101-Metafield-test-Copy/110587981308?src=urllib&_skw=test&hash=item19bf8eadfc:i:110587981308"
+    },
+    {
+      "title": "\u00a0101 Metafield test test",
+      "price": 18.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/101-Metafield-test-test/110587981604?src=urllib&_skw=test&hash=item19bf8eaf24:i:110587981604"
+    },
+    {
+      "title": "test3test",
+      "price": 0.99,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/test3test/110587988578?src=urllib&_skw=test&hash=item19bf8eca62:i:110587988578"
+    },
+    {
+      "title": "TEST: Premium Men's Classic Blue Denim Jeans - Comfortable & Stylish - SANDBO...",
+      "price": 49.99,
+      "condition": "New without tags",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-Premium-Mens-Classic-Blue-Denim-Jeans-Comfortable-Stylish-SANDBO/110588033482?src=urllib&_skw=test&hash=item19bf8f79ca:i:110588033482"
+    },
+    {
+      "title": "Test Multiple Media Product (reported)",
+      "price": 44.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Test-Multiple-Media-Product-reported/110588039328?src=urllib&_skw=test&hash=item19bf8f90a0:i:110588039328"
+    },
+    {
+      "title": "1 Aerodynamic Image test",
+      "price": 2.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/1-Aerodynamic-Image-test/110588091324?src=urllib&_skw=test&hash=item19bf905bbc:i:110588091324"
+    },
+    {
+      "title": "Test",
+      "price": 9.99,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Test/110588093174?src=urllib&_skw=test&hash=item19bf9062f6:i:110588093174"
+    },
+    {
+      "title": "Direct Test - Single Card - 1749086659",
+      "price": 2.95,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Direct-Test-Single-Card-1749086659/110587649131?src=urllib&_skw=test&hash=item19bf899c6b:i:110587649131"
+    },
+    {
+      "title": "\u00a0101 Metafield test by me",
+      "price": 60.0,
+      "condition": "Brand New",
+      "url": "https://cgi.sandbox.ebay.com/itm/101-Metafield-test-by-me/110587649512?src=urllib&_skw=test&hash=item19bf899de8:i:110587649512"
+    },
+    {
+      "title": "Test Card 1 - Monitor Check #949164",
+      "price": 0.99,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Test-Card-1-Monitor-Check-949164/110587667607?src=urllib&_skw=test&hash=item19bf89e497:i:110587667607"
+    },
+    {
+      "title": "Test Card 2 - Monitor Check #953582",
+      "price": 0.99,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Test-Card-2-Monitor-Check-953582/110587667608?src=urllib&_skw=test&hash=item19bf89e498:i:110587667608"
+    },
+    {
+      "title": "Test Card 3 - Monitor Check #957681",
+      "price": 0.99,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Test-Card-3-Monitor-Check-957681/110587667609?src=urllib&_skw=test&hash=item19bf89e499:i:110587667609"
+    },
+    {
+      "title": "Test crisp",
+      "price": 3103016.4,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Test-crisp/110587681023?src=urllib&_skw=test&hash=item19bf8a18ff:i:110587681023"
+    }
+  ]
+}
