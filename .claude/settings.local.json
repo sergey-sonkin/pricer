@@ -11,7 +11,8 @@
       "Bash(find:*)",
       "Bash(ruff check:*)",
       "Bash(git commit:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(ruff format:*)"
     ],
     "deny": []
   }
