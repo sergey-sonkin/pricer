@@ -1,10 +1,10 @@
-# PickPrice - Visual Product Pricing App
+# PicPrice - Visual Product Pricing App
 
 _Take a photo, get smart pricing for your resale items_
 
-## What is PickPrice?
+## What is PicPrice?
 
-PickPrice helps you resell items by taking a simple photo and getting intelligent pricing recommendations. Perfect for clothes, electronics, collectibles, and more across platforms like eBay, Depop, Facebook Marketplace, and Mercari.
+PicPrice helps you resell items by taking a simple photo and getting intelligent pricing recommendations. Perfect for clothes, electronics, collectibles, and more across platforms like eBay, Depop, Facebook Marketplace, and Mercari.
 
 ## How it works
 

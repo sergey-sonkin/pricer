@@ -1,6 +1,6 @@
-# PickPrice Agent Test Cases
+# PicPrice Agent Test Cases
 
-This document contains test cases for regression testing the PickPrice AI agent. Since AI responses can vary, these cases help us detect significant changes in behavior and ensure quality remains consistent.
+This document contains test cases for regression testing the PicPrice AI agent. Since AI responses can vary, these cases help us detect significant changes in behavior and ensure quality remains consistent.
 
 ## How to Use This Document
 
@@ -18,11 +18,13 @@ This document contains test cases for regression testing the PickPrice AI agent.
 **Expected Behavior:** Agent should use the Gemini analyzer tool to identify the cat toy/product and provide structured analysis
 
 **Expected Tool Call:**
+
 ```
 analyze_image_with_gemini({"image_path": "examples/cat.jpeg"})
 ```
 
 **Expected Output Structure:**
+
 - Product description (should identify as cat-related item)
 - Product type classification
 - Market category suggestion
@@ -32,6 +34,7 @@ analyze_image_with_gemini({"image_path": "examples/cat.jpeg"})
 - Confidence level
 
 **Baseline Output (2024-06-28):**
+
 ```
 🤖 Gemini AI Analysis for: cat.jpeg
 
@@ -60,6 +63,7 @@ A used, gray and white plastic cat litter box.  The litter box appears to be in 
 ```
 
 **Notes:**
+
 - Should correctly identify this as a cat-related product (litter box, not toy as initially assumed)
 - Should provide relevant marketplace suggestions (pet supplies)
 - Confidence should be reasonable given image quality
@@ -73,16 +77,19 @@ A used, gray and white plastic cat litter box.  The litter box appears to be in 
 **Expected Behavior:** Agent should use list_files tool to show directory contents
 
 **Expected Tool Call:**
+
 ```
 list_files({"path": "examples"})
 ```
 
 **Expected Output:**
+
 - Should list files in examples/ directory
 - Should include cat.jpeg and any other example files
 - Clean, formatted response
 
 **Baseline Output (2024-06-28):**
+
 ```
 Files in examples directory:
 cat.jpeg
@@ -97,16 +104,19 @@ cat.jpeg
 **Expected Behavior:** Agent should use read_file tool to examine relevant files
 
 **Expected Tool Call:**
+
 ```
 read_file({"path": "tools/gemini_analyzer.py"})
 ```
 
 **Expected Output:**
+
 - Should read and summarize the tool implementation
 - May also explore lib/analyzers/gemini.py
 - Should explain the architecture
 
 **Baseline Output (2024-06-28):**
+
 ```
 [TO BE FILLED - Run actual test]
 ```
@@ -120,17 +130,20 @@ read_file({"path": "tools/gemini_analyzer.py"})
 **Expected Behavior:** Agent should chain multiple operations to provide comprehensive selling advice
 
 **Expected Flow:**
+
 1. Use analyze_image_with_gemini tool
 2. Interpret results
 3. Provide marketplace recommendations based on analysis
 4. Suggest pricing strategy
 
 **Baseline Output (2024-06-28):**
+
 ```
 [TO BE FILLED - Run actual test]
 ```
 
 **Notes:**
+
 - Tests agent's ability to chain operations
 - Tests practical use case scenario
 - Should demonstrate understanding of resale context
@@ -140,18 +153,22 @@ read_file({"path": "tools/gemini_analyzer.py"})
 ## Proposed Additional Test Cases
 
 ### TC-005: Error Handling - Invalid Image Path
+
 **Input:** `Please analyze this image: nonexistent.jpg`
 **Purpose:** Test error handling when image doesn't exist
 
 ### TC-006: Complex Pricing Question
+
 **Input:** `What factors should I consider when pricing vintage electronics for resale?`
 **Purpose:** Test general knowledge without tool usage
 
 ### TC-007: Mixed Request
+
 **Input:** `List the files in the scripts directory and explain what the gemini_analyzer.py script does`
 **Purpose:** Test multiple tool usage in sequence
 
 ### TC-008: Architecture Understanding
+
 **Input:** `Explain the difference between the lib/, tools/, and scripts/ directories in this project`
 **Purpose:** Test agent's understanding of the codebase structure
 
@@ -167,18 +184,21 @@ read_file({"path": "tools/gemini_analyzer.py"})
 ## Evaluation Criteria
 
 **✅ Good Response:**
+
 - Correct tool usage
 - Accurate information
 - Helpful and relevant
 - Appropriate confidence levels
 
 **⚠️ Review Needed:**
+
 - Different tool usage pattern
 - Significantly different output structure
 - Changed confidence levels
 - New or missing information
 
 **❌ Regression:**
+
 - Incorrect tool usage
 - Factual errors
 - Unhelpful responses

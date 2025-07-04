@@ -43,7 +43,7 @@ def test_script_structure():
 
 
 def main():
-    print("🧪 Testing PickPrice setup...")
+    print("🧪 Testing PicPrice setup...")
     print("=" * 40)
 
     imports_ok = test_imports()

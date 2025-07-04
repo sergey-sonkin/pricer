@@ -1,7 +1,7 @@
 """
 Analyzers Package
 
-Contains various AI-powered product analyzers for the PickPrice application.
+Contains various AI-powered product analyzers for the PicPrice application.
 """
 
 from .gemini import GeminiAnalyzer, ProductAnalysis

@@ -1,4 +1,4 @@
-# PickPrice Scripts
+# PicPrice Scripts
 
 We have two different approaches to image analysis - choose based on your needs:
 
@@ -9,6 +9,7 @@ The `image_analyzer.py` script provides structured product identification using 
 ### Setup
 
 1. **Install dependencies:**
+
    ```bash
    uv sync
    ```
@@ -71,6 +72,7 @@ python image_analyzer.py path/to/your/image.jpg
 ### Testing
 
 Try it with different types of items:
+
 - Clothing (shirts, shoes, jeans)
 - Electronics (phones, laptops)
 - Books
