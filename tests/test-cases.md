@@ -150,24 +150,62 @@ read_file({"path": "tools/gemini_analyzer.py"})
 
 ---
 
+## NEW: eBay Market Research Test Cases (January 2025)
+
+### TC-005: eBay Market Research
+
+**Date Recorded:** 2025-01-04
+**Input:** `Research the market for "cat litter box" on eBay`
+**Expected Behavior:** Should use eBay API researcher to get current market data
+
+**Expected Script Usage:**
+```bash
+python scripts/ebay_api_researcher.py "cat litter box"
+```
+
+**Expected Output Structure:**
+- Active listings count and data
+- Price analysis (min, max, average, median)
+- Market insights and trends
+- Confidence score based on data availability
+- JSON export with structured data
+
+**Test Verification:**
+1. Script should connect to eBay API successfully
+2. Should retrieve active listings with price data
+3. Should calculate meaningful statistics
+4. Should save results to logs/ebay_api_researcher/
+5. Should handle API errors gracefully
+
+### TC-006: eBay Integration Test
+
+**Date Recorded:** 2025-01-04
+**Input:** `Can you research this product on eBay and tell me the market price?`
+**Expected Behavior:** Future agent integration test
+
+**Notes:**
+- Will test agent's ability to use eBay research tool
+- Should integrate with image analysis for complete workflow
+- Currently pending agent tool wrapper implementation
+
 ## Proposed Additional Test Cases
 
-### TC-005: Error Handling - Invalid Image Path
+### TC-007: Error Handling - Invalid Image Path
 
 **Input:** `Please analyze this image: nonexistent.jpg`
 **Purpose:** Test error handling when image doesn't exist
 
-### TC-006: Complex Pricing Question
+### TC-008: Complex Pricing Question
 
 **Input:** `What factors should I consider when pricing vintage electronics for resale?`
 **Purpose:** Test general knowledge without tool usage
 
-### TC-007: Mixed Request
+### TC-009: Mixed Request
 
 **Input:** `List the files in the scripts directory and explain what the gemini_analyzer.py script does`
 **Purpose:** Test multiple tool usage in sequence
 
-### TC-008: Architecture Understanding
+### TC-010: Architecture Understanding
 
 **Input:** `Explain the difference between the lib/, tools/, and scripts/ directories in this project`
 **Purpose:** Test agent's understanding of the codebase structure

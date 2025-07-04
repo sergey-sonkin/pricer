@@ -20,7 +20,8 @@ _A collection of potential features and improvements for the app_
 
 ### 🏪 Marketplace Integration
 
-- eBay API integration
+- ✅ **eBay Browse API integration** - Real marketplace data with active listings
+- ✅ **Price analysis with market insights** - Condition comparison and trends
 - Facebook Marketplace scraping
 - Depop API access
 - Mercari price checking

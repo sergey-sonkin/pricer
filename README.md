@@ -42,7 +42,7 @@ python agent/main.py
 2. `image_analyzer.py` - Identifies products from photos using Google Vision API
 3. `price_researcher.py` - Searches marketplaces for similar items and pricing
 4. `ai_pricing_engine.py` - Advanced AI-powered pricing analysis
-5. `ebay_api_researcher.py` - eBay marketplace research and pricing data
+5. `ebay_api_researcher.py` - eBay marketplace research using official Browse API
 
 ## Quick Start
 
@@ -64,6 +64,7 @@ python agent/main.py
 # Or try individual scripts:
 uv run scripts/gemini_analyzer.py examples/cat.jpeg
 uv run scripts/image_analyzer.py examples/cat.jpeg
+uv run scripts/ebay_api_researcher.py "cat litter box"
 ```
 
 ## Project Structure
@@ -73,9 +74,8 @@ pickprice/
 ├── agent/            # AI agent system
 │   └── main.py       # Claude-powered pricing agent with tools
 ├── lib/              # Core library code
-│   └── analyzers/    # Reusable analyzer classes
-│       ├── __init__.py
-│       └── gemini.py # Gemini AI product analysis
+│   ├── analyzers/    # Reusable analyzer classes
+│   └── browseapi/    # 🆕 eBay Browse API client
 ├── tools/            # Agent tool wrappers
 │   ├── __init__.py
 │   ├── base.py       # Tool definition structure
@@ -86,7 +86,7 @@ pickprice/
 │   ├── image_analyzer.py
 │   ├── price_researcher.py
 │   ├── ai_pricing_engine.py
-│   └── ebay_api_researcher.py
+│   └── ebay_api_researcher.py # eBay marketplace research
 ├── examples/         # Sample images for testing
 ├── tests/            # Test cases and regression testing
 │   └── test-cases.md # Documented test scenarios
@@ -97,13 +97,21 @@ pickprice/
 ## Environment Variables
 
 ```env
-# Required for AI agent
+# Required for Claude (base agent)
 ANTHROPIC_API_KEY=your_anthropic_key
+
+# Required for Gemini (tool call)
 GOOGLE_AI_API_KEY=your_google_ai_key
+
+# eBay Browse API Secrets
+EBAY_SANDBOX_APP_ID=your_sandbox_app_id
+EBAY_SANDBOX_CERT_ID=your_sandbox_cert_id
+EBAY_PROD_APP_ID=your_prod_app_id
+EBAY_PROD_CERT_ID=your_prod_cert_id
+EBAY_USE_SANDBOX=true                  # Set to false for production
 
 # Optional for future features
 GOOGLE_VISION_API_KEY=your_api_key
-EBAY_API_KEY=your_ebay_key
 DATABASE_URL=postgresql://...
 REDIS_URL=redis://...
 ```
