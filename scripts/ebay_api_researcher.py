@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """
-eBay API Researcher - Use official eBay APIs for pricing research
+eBay API Researcher - Use official eBay Browse API for pricing research
 
-Uses eBay's Finding API and Browse API to get real market data including
-sold listings, current prices, and market trends.
+Uses eBay's Browse API to get real market data including current prices and market trends.
 """
 
 import json
@@ -13,11 +12,14 @@ import time
 from dataclasses import dataclass
 
 try:
-    import requests
     from dotenv import load_dotenv
+
+    # Add parent directory to path to import lib
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from lib.browseapi.client import BrowseAPI
 except ImportError as e:
     print(f"Missing dependencies: {e}")
-    print("Install with: uv add requests python-dotenv")
+    print("Install with: uv add python-dotenv aiohttp")
     sys.exit(1)
 
 
@@ -53,7 +55,7 @@ class eBayPriceAnalysis:
 
 
 class eBayAPIResearcher:
-    """Research prices using official eBay APIs"""
+    """Research prices using eBay Browse API"""
 
     def __init__(self):
         """Initialize with eBay API credentials"""
@@ -65,90 +67,32 @@ class eBayAPIResearcher:
         if self.use_sandbox:
             self.app_id = os.getenv("EBAY_SANDBOX_APP_ID")
             self.cert_id = os.getenv("EBAY_SANDBOX_CERT_ID")
-            self.dev_id = os.getenv("EBAY_SANDBOX_DEV_ID")
-            self.client_secret = os.getenv("EBAY_SANDBOX_CLIENT_SECRET")
         else:
             self.app_id = os.getenv("EBAY_PROD_APP_ID")
             self.cert_id = os.getenv("EBAY_PROD_CERT_ID")
-            self.dev_id = os.getenv("EBAY_PROD_DEV_ID")
-            self.client_secret = os.getenv("EBAY_PROD_CLIENT_SECRET")
 
-        if not self.app_id:
+        if not self.app_id or not self.cert_id:
             env_type = "SANDBOX" if self.use_sandbox else "PROD"
             print(f"❌ eBay {env_type} API credentials not found!")
             print("You need to:")
             print("1. Sign up at: https://developer.ebay.com/")
-            print("2. Create an app to get App ID (Client ID)")
+            print("2. Create an app to get App ID and Cert ID")
             print("3. Set environment variables:")
             if self.use_sandbox:
                 print("   export EBAY_SANDBOX_APP_ID='your_sandbox_app_id'")
-                print(
-                    "   export EBAY_SANDBOX_CLIENT_SECRET='your_sandbox_client_secret'"
-                )
                 print("   export EBAY_SANDBOX_CERT_ID='your_sandbox_cert_id'")
-                print("   export EBAY_SANDBOX_DEV_ID='your_sandbox_dev_id'")
             else:
                 print("   export EBAY_PROD_APP_ID='your_prod_app_id'")
-                print("   export EBAY_PROD_CLIENT_SECRET='your_prod_client_secret'")
                 print("   export EBAY_PROD_CERT_ID='your_prod_cert_id'")
-                print("   export EBAY_PROD_DEV_ID='your_prod_dev_id'")
             sys.exit(1)
 
-        # API endpoints (sandbox or production) - Using Browse API (Finding API deprecated Feb 2025)
-        if self.use_sandbox:
-            self.browse_api_url = "https://api.sandbox.ebay.com/buy/browse/v1"
-            self.oauth_url = "https://api.sandbox.ebay.com/identity/v1/oauth2/token"
-            print(
-                f"🧪 Using eBay Sandbox Browse API with App ID: {self.app_id[:10]}..."
-            )
-        else:
-            self.browse_api_url = "https://api.ebay.com/buy/browse/v1"
-            self.oauth_url = "https://api.ebay.com/identity/v1/oauth2/token"
-            print(
-                f"🚀 Using eBay Production Browse API with App ID: {self.app_id[:10]}..."
-            )
-
-        # Get OAuth token for Browse API
-        self.access_token = self._get_oauth_token()
-
-        # Headers for Browse API requests
-        self.browse_headers = {
-            "Authorization": f"Bearer {self.access_token}",
-            "Content-Type": "application/json",
-            "X-EBAY-C-MARKETPLACE-ID": "EBAY_US",
-        }
-
-    def _get_oauth_token(self) -> str:
-        """Get OAuth 2.0 access token for Browse API"""
-        try:
-            import base64
-
-            # Create basic auth header
-            credentials = f"{self.app_id}:{self.client_secret}"
-            encoded_credentials = base64.b64encode(credentials.encode()).decode()
-
-            headers = {
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Authorization": f"Basic {encoded_credentials}",
-            }
-
-            data = {
-                "grant_type": "client_credentials",
-                "scope": "https://api.ebay.com/oauth/api_scope",
-            }
-
-            response = requests.post(
-                self.oauth_url, headers=headers, data=data, timeout=30
-            )
-            response.raise_for_status()
-
-            token_data = response.json()
-            print("    🔑 OAuth token obtained successfully")
-            return token_data["access_token"]
-
-        except Exception as e:
-            print(f"❌ Failed to get OAuth token: {e}")
-            sys.exit(1)
+        # Initialize BrowseAPI client
+        print(f"🚀 Using eBay Browse API with App ID: {self.app_id[:10]}...")
+        self.browse_client = BrowseAPI(
+            app_id=self.app_id,
+            cert_id=self.cert_id,
+            marketplace_id="EBAY_US",
+        )
 
     def research_product(
         self, product_description: str, category_id: str | None = None
@@ -165,16 +109,12 @@ class eBayAPIResearcher:
         """
         print(f"🔍 Researching '{product_description}' on eBay...")
 
-        # 1. Get current active listings (Browse API doesn't provide sold listings directly)
+        # Get active listings using Browse API
         print("  🛒 Fetching active listings...")
-        active_listings = self._get_active_listings_browse(
-            product_description, category_id
-        )
+        active_listings = self._get_active_listings(product_description, category_id)
 
-        # Note: Browse API doesn't provide sold listings - would need different eBay API for historical data
-        print(
-            "  📦 Sold listings not available via Browse API (requires different endpoint)"
-        )
+        # Note: Browse API doesn't provide sold listings
+        print("  📦 Sold listings not available via Browse API")
         sold_listings = []
 
         # 3. Analyze the data
@@ -184,65 +124,114 @@ class eBayAPIResearcher:
 
         return analysis
 
-    def _get_active_listings_browse(
+    def _get_active_listings(
         self, keywords: str, category_id: str | None = None, max_results: int = 50
     ) -> list[eBayListing]:
         """Get active listings using Browse API"""
         listings = []
 
         try:
-            # Build search URL
-            search_url = f"{self.browse_api_url}/item_summary/search"
-
-            # Build query parameters
-            params = {
-                "q": keywords,
-                "limit": min(max_results, 200),  # Browse API max is 200
-                "sort": "price",
-                "filter": "conditionIds:{1000|3000}",  # New and Used
-            }
+            # Prepare search parameters for browseapi library
+            search_params = [{"q": keywords, "limit": min(max_results, 200)}]
 
             if category_id:
-                params["category_ids"] = category_id
+                search_params[0]["category_ids"] = category_id
 
-            # Make API request
-            response = requests.get(
-                search_url,
-                headers=self.browse_headers,
-                params=params,
-                timeout=30,
-            )
-            response.raise_for_status()
+            # Use browseapi library to search
+            responses = self.browse_client.execute("search", search_params)
 
-            data = response.json()
+            if not responses:
+                print("    📊 API returned 0 active items")
+                return listings
 
-            # Debug: Print API status
-            total_items = data.get("total", 0)
-            print(f"    📊 API returned {total_items} active items")
+            response = responses[0]
+            if hasattr(response, "total"):
+                print(f"    📊 API returned {response.total} active items")
 
-            # Parse results
-            items = data.get("itemSummaries", [])
-
-            for item in items:
-                try:
-                    listing = self._parse_browse_item(item)
-                    if listing:
-                        listings.append(listing)
-                        print(
-                            f"    🛒 Active: ${listing.price:.2f} - {listing.title[:50]}..."
-                        )
-                except Exception as e:
-                    print(f"    ⚠️ Failed to parse item: {e}")
-                    continue
+                # Parse results using browseapi containers
+                if hasattr(response, "itemSummaries"):
+                    for item_summary in response.itemSummaries:
+                        try:
+                            listing = self._parse_browse_item_summary(item_summary)
+                            if listing:
+                                listings.append(listing)
+                                print(
+                                    f"    🛒 Active: ${listing.price:.2f} - {listing.title[:50]}..."
+                                )
+                        except Exception as e:
+                            print(f"    ⚠️ Failed to parse item: {e}")
+                            continue
 
             print(f"    ✅ Found {len(listings)} active listings")
 
-        except requests.exceptions.RequestException as e:
-            print(f"    ❌ Error fetching active listings: {e}")
         except Exception as e:
-            print(f"    ❌ Unexpected error: {e}")
+            print(f"    ❌ Error fetching active listings: {e}")
 
         return listings
+
+    def _parse_browse_item_summary(self, item_summary) -> eBayListing | None:
+        """Parse browseapi ItemSummary object into eBayListing"""
+        try:
+            # Extract basic info from ItemSummary object
+            title = item_summary.title or ""
+
+            # Extract price info
+            price = 0.0
+            currency = "USD"
+            if hasattr(item_summary, "price") and item_summary.price:
+                price = float(item_summary.price.value or 0)
+                currency = item_summary.price.currency or "USD"
+
+            # Extract condition
+            condition = item_summary.condition or "Unknown"
+
+            # Browse API items are always active listings
+            listing_type = "FixedPrice"
+
+            # Extract shipping
+            shipping_cost = None
+            if (
+                hasattr(item_summary, "shippingOptions")
+                and item_summary.shippingOptions
+            ):
+                shipping_option = item_summary.shippingOptions[0]
+                if (
+                    hasattr(shipping_option, "shippingCost")
+                    and shipping_option.shippingCost
+                ):
+                    shipping_cost = float(shipping_option.shippingCost.value or 0)
+
+            # URLs and image
+            item_url = item_summary.itemWebUrl or ""
+            image_url = ""
+            if hasattr(item_summary, "image") and item_summary.image:
+                image_url = item_summary.image.imageUrl or ""
+
+            # Seller info
+            seller_feedback = None
+            if hasattr(item_summary, "seller") and item_summary.seller:
+                if hasattr(item_summary.seller, "feedbackPercentage"):
+                    seller_feedback = int(
+                        float(item_summary.seller.feedbackPercentage or 0)
+                    )
+
+            return eBayListing(
+                title=title,
+                price=price,
+                currency=currency,
+                condition=condition,
+                listing_type=listing_type,
+                end_time=None,
+                sold_date=None,
+                shipping_cost=shipping_cost,
+                item_url=item_url,
+                image_url=image_url,
+                seller_feedback=seller_feedback,
+            )
+
+        except (AttributeError, ValueError, TypeError) as e:
+            print(f"    🔍 Parse error details: {e}")
+            return None
 
     def _parse_browse_item(self, item: dict) -> eBayListing | None:
         """Parse Browse API item response into eBayListing"""
@@ -312,6 +301,7 @@ class eBayAPIResearcher:
             listing.price for listing in active_listings if listing.price > 0
         ]
 
+        price_stats: dict[str, float | int] = {}
         if sold_prices:
             sold_prices.sort()
             price_stats = {
@@ -323,34 +313,32 @@ class eBayAPIResearcher:
             }
         else:
             price_stats = {
-                "sold_min": 0,
-                "sold_max": 0,
-                "sold_avg": 0,
-                "sold_median": 0,
+                "sold_min": 0.0,
+                "sold_max": 0.0,
+                "sold_avg": 0.0,
+                "sold_median": 0.0,
                 "sold_count": 0,
             }
 
         if active_prices:
             active_prices.sort()
-            price_stats.update(
-                {
-                    "active_min": min(active_prices),
-                    "active_max": max(active_prices),
-                    "active_avg": sum(active_prices) / len(active_prices),
-                    "active_median": active_prices[len(active_prices) // 2],
-                    "active_count": len(active_prices),
-                }
-            )
+            active_stats: dict[str, float | int] = {
+                "active_min": min(active_prices),
+                "active_max": max(active_prices),
+                "active_avg": sum(active_prices) / len(active_prices),
+                "active_median": active_prices[len(active_prices) // 2],
+                "active_count": len(active_prices),
+            }
+            price_stats.update(active_stats)
         else:
-            price_stats.update(
-                {
-                    "active_min": 0,
-                    "active_max": 0,
-                    "active_avg": 0,
-                    "active_median": 0,
-                    "active_count": 0,
-                }
-            )
+            active_stats: dict[str, float | int] = {
+                "active_min": 0.0,
+                "active_max": 0.0,
+                "active_avg": 0.0,
+                "active_median": 0.0,
+                "active_count": 0,
+            }
+            price_stats.update(active_stats)
 
         # Generate market insights
         insights = self._generate_market_insights(
@@ -404,9 +392,34 @@ class eBayAPIResearcher:
         for listing in sold_listings:
             conditions[listing.condition] = conditions.get(listing.condition, 0) + 1
 
+        # Also analyze active listing conditions for market comparison
+        active_conditions = {}
+        for listing in active_listings:
+            active_conditions[listing.condition] = (
+                active_conditions.get(listing.condition, 0) + 1
+            )
+
         if conditions:
             top_condition = max(conditions.keys(), key=lambda k: conditions[k])
             insights.append(f"Most common condition sold: {top_condition}")
+
+        if active_conditions and conditions:
+            # Compare condition trends between sold and active
+            for condition in conditions:
+                if condition in active_conditions:
+                    sold_pct = (conditions[condition] / len(sold_listings)) * 100
+                    active_pct = (
+                        active_conditions[condition] / len(active_listings)
+                    ) * 100
+                    if abs(sold_pct - active_pct) > 20:
+                        if sold_pct > active_pct:
+                            insights.append(
+                                f"{condition} items sell well but few are listed"
+                            )
+                        else:
+                            insights.append(
+                                f"Market oversupplied with {condition} items"
+                            )
 
         # Listing type analysis
         auction_count = len(
