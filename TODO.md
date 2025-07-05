@@ -3,6 +3,7 @@ Todos:
 - Support multiple images
 - Enable ebay image lookup as tool
 - Improve ebay searching (agent currently uses a bunch of words at once, sees nothing, and gives up)
+- Train the agent to ask users clarifying questions
 
 2025/07/05:
 
