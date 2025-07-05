@@ -16,3 +16,10 @@ __pycache__/
 
 # Log files
 *.log
+
+# Database files
+db/
+test_db/
+*.db
+*.sqlite
+*.sqlite3

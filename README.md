@@ -61,11 +61,21 @@ export GOOGLE_AI_API_KEY="your_google_ai_key"
 # Try the AI agent! (recommended)
 python agent/main.py
 
-# Or try individual scripts:
+# Try individual scripts:
 uv run scripts/gemini_analyzer.py examples/cat.jpeg
 uv run scripts/image_analyzer.py examples/cat.jpeg
 uv run scripts/ebay_api_researcher.py "cat litter box"
 ```
+
+## Database Storage
+
+**🗄️ SQLite Database for eBay Data**
+
+All eBay API results are automatically stored in a SQLite database for historical analysis and trend tracking. This solves the problem of eBay not storing past listings.
+
+Key features: automatic storage, price trends, search history, and smart deduplication.
+
+**📋 See [db/README.md](db/README.md) for complete database documentation.**
 
 ## Project Structure
 
@@ -75,7 +85,8 @@ pickprice/
 │   └── main.py       # Claude-powered pricing agent with tools
 ├── lib/              # Core library code
 │   ├── analyzers/    # Reusable analyzer classes
-│   └── browseapi/    # 🆕 eBay Browse API client
+│   ├── browseapi/    # 🆕 eBay Browse API client
+│   └── database/     # 🆕 SQLite database for eBay data storage
 ├── tools/            # Agent tool wrappers
 │   ├── __init__.py
 │   ├── base.py       # Tool definition structure
