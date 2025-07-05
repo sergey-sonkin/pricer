@@ -52,8 +52,8 @@ def test_site_access():
         divs = soup.find_all("div", class_=True)[:10]
         print("   First 10 div classes found:")
         for i, div in enumerate(divs):
-            classes = div.get("class", [])
-            print(f"     {i+1}. {' '.join(classes[:3])}...")  # Show first 3 classes
+            classes = div.get("class") or []
+            print(f"     {i + 1}. {' '.join(classes[:3])}...")  # Show first 3 classes
 
     except Exception as e:
         print(f"   ❌ Error: {e}")
