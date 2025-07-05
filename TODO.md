@@ -1,13 +1,16 @@
 Todos:
 
+- Add better test images
 - Support multiple images
 - Enable ebay image lookup as tool
 - Improve ebay searching (agent currently uses a bunch of words at once, sees nothing, and gives up)
 - Train the agent to ask users clarifying questions
+- Add test cases
 
 2025/07/05:
 
 - Add agent support to use the google vision tool
+- Refactor ebayAPI researcher to use lib/ rather than scripts/
 
 2025/07/04:
 

@@ -173,14 +173,9 @@ uv run pre-commit run --all-files
 This is a collaborative project! Feel free to:
 
 - Add feature ideas to `IDEAS.md`
-- Pick up tasks from `TODO.md`
 - Submit PRs for improvements
-- Run test cases when making changes
+- Add test cases
 
 ## License
 
 MIT License - feel free to use and modify
-
----
-
-_Built with love for the reselling community_ 💜
