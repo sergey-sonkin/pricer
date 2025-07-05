@@ -15,6 +15,7 @@ Todos:
 - Refactor ebayAPI researcher to use lib/ rather than scripts/
 - Added Example 1 (Apple iPad Mini 6th Gen 64GB)
 - Support multiple images (turns out this just works natively! tested and happy with result)
+- Add sqlite db for storing ebay listings
 
 2025/07/04:
 
