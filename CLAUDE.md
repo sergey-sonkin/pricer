@@ -17,3 +17,21 @@ When writing or modifying code, please ensure it follows our quality standards:
 - `uv run pre-commit run --all-files` - Run all quality checks
 
 All code should pass ruff checks without violations. Pre-commit hooks will automatically format and check code on every commit.
+
+# Dependency Management Standards
+
+When writing code that uses external dependencies:
+
+## Import Standards:
+- **NO try/except blocks around imports** - dependencies should be properly declared and available
+- Use direct imports: `from package import module`
+- If a dependency is missing, the code should fail fast with a clear error message
+
+## Environment Variables:
+- All scripts and library code should load `.env` files using `python-dotenv`
+- Add `from dotenv import load_dotenv` and call `load_dotenv()` at module level
+- Environment variables should be documented in `.env.example`
+
+## Dependency Declaration:
+- Add all dependencies to `pyproject.toml` using `uv add package_name`
+- Never assume dependencies are available without declaring them
