@@ -96,8 +96,8 @@ pickprice/
 │   └── main.py       # Claude-powered pricing agent with tools
 ├── lib/              # Core library code
 │   ├── analyzers/    # Reusable analyzer classes
-│   ├── browseapi/    # 🆕 eBay Browse API client
-│   └── database/     # 🆕 SQLite database for eBay data storage
+│   ├── browseapi/    # eBay Browse API client
+│   └── database/     # SQLite database for eBay data storage
 ├── tools/            # Agent tool wrappers
 │   ├── __init__.py
 │   ├── base.py       # Tool definition structure
