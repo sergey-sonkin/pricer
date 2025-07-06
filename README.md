@@ -24,18 +24,19 @@ python agent/main.py
 
 **🏗️ Architecture Overview:**
 
-- **`lib/`** - Core reusable analyzer classes (GeminiAnalyzer, etc.)
-- **`tools/`** - Agent tool wrappers that use lib classes
-- **`scripts/`** - CLI interfaces for standalone usage
 - **`agent/`** - Main conversational AI that orchestrates tools
+- **`lib/`** - Core reusable analyzer classes (GeminiAnalyzer, OpenAIAnalyzer, etc.)
+- **`scripts/`** - CLI interfaces for standalone usage
 - **`tests/`** - Documented test cases for regression testing
+- **`tools/`** - Agent tool wrappers that use lib classes
 
 **🛠️ Agent Tools:**
 
 - **Gemini Vision Analysis** - Google's AI for product identification from photos
-- **OpenAI Vision Analysis** - GPT-4 Vision for advanced product analysis
+- **OpenAI Vision Analysis** - GPT-4 Vision for advanced product analysis and market insights
+- **Google Vision Analysis** - Traditional computer vision for detailed feature extraction
+- **eBay Market Research** - Real marketplace data using eBay Browse API
 - **File System Tools** - Read and explore project files
-- **Future Tools** - Price research, market analysis, and more
 
 **📋 Available Scripts:**
 
@@ -70,6 +71,11 @@ uv run scripts/gemini_analyzer.py examples/cat.jpeg
 uv run scripts/openai_analyzer.py examples/cat.jpeg
 uv run scripts/image_analyzer.py examples/cat.jpeg
 uv run scripts/ebay_api_researcher.py "cat litter box"
+
+# Example agent commands:
+# "Please analyze this image with OpenAI: examples/cat.jpeg"
+# "Compare Gemini and OpenAI analysis for examples/cat.jpeg"
+# "Analyze the image and then research similar items on eBay"
 ```
 
 ## Database Storage
@@ -96,7 +102,10 @@ pickprice/
 │   ├── __init__.py
 │   ├── base.py       # Tool definition structure
 │   ├── file_system.py # File operations
-│   └── gemini_analyzer.py # Gemini tool wrapper
+│   ├── gemini_analyzer.py # Gemini tool wrapper
+│   ├── openai_analyzer.py # OpenAI tool wrapper
+│   ├── vision_analyzer.py # Google Vision tool wrapper
+│   └── ebay_researcher.py # eBay research tool wrapper
 ├── scripts/          # Command-line interface scripts
 │   ├── gemini_analyzer.py # CLI for Gemini analysis
 │   ├── openai_analyzer.py # CLI for OpenAI analysis
@@ -142,7 +151,7 @@ We maintain quality through documented test cases in `tests/test-cases.md`:
 ```bash
 # Example test: Image analysis
 # Input: "Please analyze this image: examples/cat.jpeg"
-# Expected: Gemini tool usage with structured product analysis
+# Expected: Agent chooses appropriate vision tool (Gemini or OpenAI)
 ```
 
 **Test Categories:**

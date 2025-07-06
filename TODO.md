@@ -1,6 +1,5 @@
 Todos:
 
-- Add OpenAI vision model
 - Add better test images
   - Write script testing ebay image lookup
 - Improve ebay searching (agent currently uses a bunch of words at once, sees nothing, and gives up)
@@ -13,6 +12,8 @@ Todos:
 - Confirm sqlite db works as intended with agent runs
 - Attempt using image lookup (`scripts/ebay_image_lookup.py`)
 - Migrate to Python 3.10, remove Optionals and Unions
+- Add OpenAI vision model script
+- Add OpenAI vision model tool to agent
 
 2025/07/05:
 

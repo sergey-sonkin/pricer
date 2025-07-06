@@ -150,6 +150,84 @@ read_file({"path": "tools/gemini_analyzer.py"})
 
 ---
 
+### TC-004: OpenAI Vision Analysis
+
+**Date Recorded:** 2025-01-06
+**Input:** `Please analyze this image with OpenAI: examples/cat.jpeg`
+**Expected Behavior:** Agent should use the OpenAI analyzer tool to provide GPT-4 Vision analysis
+
+**Expected Tool Call:**
+
+```
+analyze_image_with_openai({"image_path": "examples/cat.jpeg"})
+```
+
+**Expected Output Structure:**
+
+- Product description (GPT-4 Vision analysis style)
+- Product type classification
+- Market category suggestion
+- Condition assessment
+- Notable features
+- Pricing factors
+- Confidence level
+
+**Baseline Output (2025-01-06):**
+
+```
+🤖 OpenAI Vision Analysis for: cat.jpeg
+
+🎯 Confidence Level: Medium
+
+📝 Product Description:
+Cat litter box with a cat partially exiting. The litter box appears to be designed for ease of use by pets.
+
+📦 Product Type: Pet Supplies
+🏪 Market Category: Pet Supplies
+⭐ Condition: Good
+
+✨ Notable Features:
+• can accommodate multiple cat sizes
+• easy access for pets
+• may have a cover to contain litter
+
+💰 Pricing Factors:
+• brand reputation
+• condition of the item
+• additional accessories included (if any)
+• local demand for pet supplies
+```
+
+**Notes:**
+
+- OpenAI tends to focus on functional aspects and user experience
+- Different analysis style compared to Gemini (more practical/usage-focused)
+- Should provide market-relevant insights for resale purposes
+
+---
+
+### TC-004b: Comparative Analysis Test
+
+**Date Recorded:** 2025-01-06
+**Input:** `Compare Gemini and OpenAI analysis for examples/cat.jpeg`
+**Expected Behavior:** Agent should use both analyzers and provide comparison
+
+**Expected Tool Calls:**
+
+```
+analyze_image_with_gemini({"image_path": "examples/cat.jpeg"})
+analyze_image_with_openai({"image_path": "examples/cat.jpeg"})
+```
+
+**Expected Output Structure:**
+
+- Both analysis results
+- Comparison of key differences
+- Combined insights for pricing strategy
+- Recommendation on which analysis is more useful
+
+---
+
 ## NEW: eBay Market Research Test Cases (January 2025)
 
 ### TC-005: eBay Market Research
@@ -195,7 +273,12 @@ python scripts/ebay_api_researcher.py "cat litter box"
 **Input:** `Please analyze this image: nonexistent.jpg`
 **Purpose:** Test error handling when image doesn't exist
 
-### TC-008: Complex Pricing Question
+### TC-008: Tool Choice Intelligence
+
+**Input:** `Which analyzer would you recommend for vintage electronics?`
+**Purpose:** Test agent's ability to recommend appropriate tools
+
+### TC-009: Complex Pricing Question
 
 **Input:** `What factors should I consider when pricing vintage electronics for resale?`
 **Purpose:** Test general knowledge without tool usage
