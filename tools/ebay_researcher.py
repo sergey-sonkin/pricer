@@ -12,6 +12,7 @@ from typing import Any
 from dotenv import load_dotenv
 
 from lib.browseapi.client import BrowseAPI
+from lib.database import eBayDatabase
 
 from .base import ToolDefinition
 
@@ -314,11 +315,16 @@ def research_ebay_prices(input_data: dict[str, Any]) -> str:
         # Research the product
         analysis = researcher.research_product(product_description, category_id)
 
+        # Store in database
+        db = eBayDatabase()
+        search_id = db.store_analysis(analysis, category_id)
+
         # Format the results as a readable string
         result = f"""📊 eBay Market Analysis for: {product_description}
 ============================================================
 🎯 Confidence Score: {analysis.confidence_score:.2f}
-📈 Data Quality: {analysis.total_sold} sold, {analysis.total_active} active listings"""
+📈 Data Quality: {analysis.total_sold} sold, {analysis.total_active} active listings
+💾 Stored in database with search ID: {search_id}"""
 
         if analysis.total_active > 0:
             result += f"""

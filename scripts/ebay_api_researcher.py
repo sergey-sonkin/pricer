@@ -17,6 +17,7 @@ try:
     # Add parent directory to path to import lib
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     from lib.browseapi.client import BrowseAPI
+    from lib.database import eBayDatabase
 except ImportError as e:
     print(f"Missing dependencies: {e}")
     print("Install with: uv add python-dotenv aiohttp")
@@ -510,6 +511,11 @@ def main():
 
         # Print results
         researcher.print_analysis(analysis)
+
+        # Store in database
+        db = eBayDatabase()
+        search_id = db.store_analysis(analysis, category_id)
+        print(f"💾 Stored in database with search ID: {search_id}")
 
         # Save results to JSON
         os.makedirs("logs/ebay_api_researcher", exist_ok=True)
