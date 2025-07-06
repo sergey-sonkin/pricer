@@ -11,7 +11,7 @@ import sqlite3
 # Import the dataclasses from the existing modules
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
 
 
 @dataclass
@@ -145,7 +145,7 @@ class eBayDatabase:
                 CREATE INDEX IF NOT EXISTS idx_search_listings_listing ON search_listings(listing_id);
             """)
 
-    def store_analysis(self, analysis: Any, category_id: Optional[str] = None) -> int:
+    def store_analysis(self, analysis: Any, category_id: str | None = None) -> int:
         """
         Store a complete eBay price analysis in the database
 
@@ -176,7 +176,7 @@ class eBayDatabase:
         self,
         conn: sqlite3.Connection,
         analysis: eBayPriceAnalysis,
-        category_id: Optional[str],
+        category_id: str | None,
     ) -> int:
         """Store a search record and return its ID"""
         cursor = conn.cursor()

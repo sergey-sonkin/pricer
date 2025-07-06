@@ -10,7 +10,6 @@ This is the core analyzer class, separated from CLI functionality.
 import json
 import os
 from dataclasses import dataclass
-from typing import Optional
 
 try:
     import google.genai as genai
@@ -26,9 +25,9 @@ class ProductAnalysis:
     """AI-powered product analysis results"""
 
     product_description: str
-    brand: Optional[str]
+    brand: str | None
     product_type: str
-    condition: Optional[str]
+    condition: str | None
     notable_features: list[str]
     market_category: str
     confidence_level: str
@@ -39,7 +38,7 @@ class ProductAnalysis:
 class GeminiAnalyzer:
     """Analyzes product images using Google Gemini AI"""
 
-    def __init__(self, api_key: Optional[str] = None):
+    def __init__(self, api_key: str | None = None):
         """
         Initialize with Google Gemini API key
 

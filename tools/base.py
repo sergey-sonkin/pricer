@@ -4,8 +4,9 @@ Base classes and types for agent tools
 Defines the common ToolDefinition structure used by all tools.
 """
 
+from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any, Callable
+from typing import Any
 
 
 @dataclass

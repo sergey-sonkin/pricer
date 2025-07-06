@@ -31,10 +31,10 @@ class BrowseAPIResponse(BrowseAPIBaseContainer):
         # itemSummary methods
 
         if method in ("search", "search_by_image"):
-            self.href = response["href"]
-            self.limit = response["limit"]
-            self.offset = response["offset"]
-            self.total = response["total"]
+            self.href = response.get("href")  # Handle missing href field in sandbox
+            self.limit = response.get("limit", 0)
+            self.offset = response.get("offset", 0)
+            self.total = response.get("total", 0)
 
             for key in "next", "prev":
                 setattr(self, key, response.get(key))

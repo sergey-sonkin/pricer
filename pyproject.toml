@@ -2,7 +2,7 @@
 name = "pickprice"
 version = "0.1.0"
 description = "Visual product pricing tool for resellers"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = [
     "google-cloud-vision>=3.4.0",
     "pillow>=10.0.0",
@@ -15,11 +15,12 @@ dependencies = [
     "aiohttp>=3.12.13",
     "dotenv>=0.9.9",
     "pre-commit>=4.2.0",
+    "openai>=1.93.0",
 ]
 
 [tool.ruff]
 line-length = 88
-target-version = "py39"
+target-version = "py310"
 
 # Enable specific rule sets
 lint.select = [
@@ -30,6 +31,7 @@ lint.select = [
     "B",   # flake8-bugbear
     "C4",  # flake8-comprehensions
     "UP",  # pyupgrade
+    "UP007" # non-pep604-annotation-union
 ]
 
 # Ignore specific rules if needed

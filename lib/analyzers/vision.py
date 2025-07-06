@@ -9,7 +9,6 @@ This is the core analyzer class, separated from CLI functionality.
 
 import os
 from dataclasses import dataclass
-from typing import Optional
 
 try:
     from google.cloud import vision
@@ -34,7 +33,7 @@ class VisionAnalysis:
 class VisionAnalyzer:
     """Analyzes product images using Google Vision API"""
 
-    def __init__(self, api_key_path: Optional[str] = None):
+    def __init__(self, api_key_path: str | None = None):
         """
         Initialize with Google Vision API credentials
 
