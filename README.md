@@ -33,16 +33,19 @@ python agent/main.py
 **🛠️ Agent Tools:**
 
 - **Gemini Vision Analysis** - Google's AI for product identification from photos
+- **OpenAI Vision Analysis** - GPT-4 Vision for advanced product analysis
 - **File System Tools** - Read and explore project files
 - **Future Tools** - Price research, market analysis, and more
 
 **📋 Available Scripts:**
 
 1. `gemini_analyzer.py` - AI-powered product identification using Google Gemini API
-2. `image_analyzer.py` - Identifies products from photos using Google Vision API
-3. `price_researcher.py` - Searches marketplaces for similar items and pricing
-4. `ai_pricing_engine.py` - Advanced AI-powered pricing analysis
-5. `ebay_api_researcher.py` - eBay marketplace research using official Browse API
+2. `openai_analyzer.py` - Advanced product analysis using OpenAI GPT-4 Vision
+3. `image_analyzer.py` - Identifies products from photos using Google Vision API
+4. `price_researcher.py` - Searches marketplaces for similar items and pricing
+5. `ai_pricing_engine.py` - Advanced AI-powered pricing analysis
+6. `ebay_api_researcher.py` - eBay marketplace research using official Browse API
+7. `ebay_image_lookup.py` - Visual search on eBay using image recognition
 
 ## Quick Start
 
@@ -57,12 +60,14 @@ uv sync
 # Set up your API keys
 export ANTHROPIC_API_KEY="your_anthropic_key"
 export GOOGLE_AI_API_KEY="your_google_ai_key"
+export OPENAI_API_KEY="your_openai_key"
 
 # Try the AI agent! (recommended)
 python agent/main.py
 
 # Try individual scripts:
 uv run scripts/gemini_analyzer.py examples/cat.jpeg
+uv run scripts/openai_analyzer.py examples/cat.jpeg
 uv run scripts/image_analyzer.py examples/cat.jpeg
 uv run scripts/ebay_api_researcher.py "cat litter box"
 ```
@@ -94,10 +99,12 @@ pickprice/
 │   └── gemini_analyzer.py # Gemini tool wrapper
 ├── scripts/          # Command-line interface scripts
 │   ├── gemini_analyzer.py # CLI for Gemini analysis
+│   ├── openai_analyzer.py # CLI for OpenAI analysis
 │   ├── image_analyzer.py
 │   ├── price_researcher.py
 │   ├── ai_pricing_engine.py
-│   └── ebay_api_researcher.py # eBay marketplace research
+│   ├── ebay_api_researcher.py # eBay marketplace research
+│   └── ebay_image_lookup.py # eBay visual search
 ├── examples/         # Sample images for testing
 ├── tests/            # Test cases and regression testing
 │   └── test-cases.md # Documented test scenarios
@@ -111,8 +118,9 @@ pickprice/
 # Required for Claude (base agent)
 ANTHROPIC_API_KEY=your_anthropic_key
 
-# Required for Gemini (tool call)
+# Required for Gemini and OpenAI (tool calls)
 GOOGLE_AI_API_KEY=your_google_ai_key
+OPENAI_API_KEY=your_openai_key
 
 # eBay Browse API Secrets
 EBAY_SANDBOX_APP_ID=your_sandbox_app_id

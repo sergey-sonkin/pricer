@@ -150,6 +150,147 @@ The watch appears to be in excellent condition with minimal wear on the case and
 
 ---
 
+## OpenAI Vision Analyzer (GPT-4 Vision)
+
+The `openai_analyzer.py` script uses OpenAI's GPT-4 Vision for advanced product analysis and market insights.
+
+### Setup
+
+1. **Install dependencies:**
+
+   ```bash
+   uv sync
+   ```
+
+2. **Set up OpenAI API:**
+   - Go to [OpenAI Platform](https://platform.openai.com/api-keys)
+   - Create an API key
+   - Set environment variable:
+     ```bash
+     export OPENAI_API_KEY="your_openai_api_key"
+     ```
+
+### Usage
+
+```bash
+python openai_analyzer.py path/to/your/image.jpg
+```
+
+### Example Output
+
+```
+🤖 OpenAI Vision Analysis for: vintage_camera.jpg
+==================================================
+🎯 Confidence Level: High
+
+📝 Product Description:
+   Vintage 35mm film camera with leather body and manual controls.
+   Appears to be a classic rangefinder style camera from the 1960s-70s era.
+
+📦 Product Type: Photography Equipment
+🏪 Market Category: Cameras & Photo > Vintage Cameras
+🏢 Brand: Leica
+⭐ Condition: Good
+
+✨ Notable Features:
+   • Manual focus and exposure controls
+   • Leather body with metal trim
+   • Vintage rangefinder design
+   • Original lens appears intact
+
+💰 Pricing Factors:
+   • Brand reputation and model rarity
+   • Working condition of mechanisms
+   • Lens quality and clarity
+   • Completeness of original accessories
+   • Age and historical significance
+```
+
+### What it does
+
+- **GPT-4 Vision Analysis**: Uses OpenAI's most advanced vision model
+- **Market-Focused Insights**: Tailored for resale scenarios
+- **Detailed Descriptions**: Rich contextual analysis
+- **Brand Recognition**: Sophisticated identification capabilities
+- **Pricing Context**: Factors that influence market value
+- **Condition Assessment**: AI-powered condition evaluation
+
+---
+
+## 🆕 eBay Image Lookup
+
+The `ebay_image_lookup.py` script allows you to search eBay using an image instead of text queries.
+
+### Setup
+
+1. **Install dependencies:**
+
+   ```bash
+   uv sync
+   ```
+
+2. **Set up eBay API:**
+   - Go to [eBay Developers](https://developer.ebay.com/)
+   - Create an app to get App ID and Cert ID
+   - Set environment variables:
+     ```bash
+     export EBAY_SANDBOX_APP_ID="your_sandbox_app_id"
+     export EBAY_SANDBOX_CERT_ID="your_sandbox_cert_id"
+     export EBAY_USE_SANDBOX="true"  # Set to false for production
+     ```
+
+### Usage
+
+```bash
+python ebay_image_lookup.py path/to/your/image.jpg
+```
+
+### Example Output
+
+```
+=== eBay Image Lookup ===
+Image: vintage_watch.jpg
+
+🔍 Searching eBay using image...
+📊 Found 23 similar items
+
+=== Search Results Summary ===
+Total items found: 23
+Items returned: 23
+
+💰 Price Analysis:
+Min price: $89.99
+Max price: $2,450.00
+Average price: $486.23
+Median price: $325.00
+
+=== Sample Items ===
+1. Vintage Omega Speedmaster Professional - $1,250.00
+   Condition: Used
+   Seller: watch_collector_pro
+
+2. Rolex Submariner Date Vintage - $2,450.00
+   Condition: Pre-owned
+   Seller: luxury_timepieces
+
+3. Seiko Diver's Watch 200m - $189.95
+   Condition: Used
+   Seller: affordable_watches
+
+Full results saved to: logs/ebay_image_lookup/vintage_watch_lookup_1234567890.json
+```
+
+### What it does
+
+- **Visual Search**: Find similar items using image recognition
+- **Price Discovery**: Get current market pricing for visually similar items
+- **Market Analysis**: Statistical breakdown of found listings
+- **Detailed Results**: Complete item information including seller data
+- **JSON Export**: Structured data for further analysis
+- **Production Ready**: Robust error handling and API management
+
+---
+
 ## 🆕 eBay Market Research
 
 The `ebay_api_researcher.py` script provides real marketplace data using eBay's official Browse API.
@@ -253,7 +394,9 @@ Advanced AI-powered pricing analysis and recommendations.
 | ------------------------ | ---------------------------------------- | --------------- |
 | `image_analyzer.py`      | Google Vision API product identification | Google Vision   |
 | `gemini_analyzer.py`     | Advanced AI analysis with Gemini         | Google AI       |
-| `ebay_api_researcher.py` | **NEW!** Real eBay marketplace data      | eBay Browse API |
+| `openai_analyzer.py`     | **NEW!** OpenAI GPT-4 Vision analysis    | OpenAI API      |
+| `ebay_api_researcher.py` | Real eBay marketplace data               | eBay Browse API |
+| `ebay_image_lookup.py`   | **NEW!** Visual search on eBay           | eBay Browse API |
 | `price_researcher.py`    | Multi-platform price scraping            | None            |
 | `ai_pricing_engine.py`   | AI-powered pricing engine                | Various         |
 
@@ -263,8 +406,9 @@ Advanced AI-powered pricing analysis and recommendations.
 # Core APIs
 export GOOGLE_AI_API_KEY="your_google_ai_key"
 export GOOGLE_APPLICATION_CREDENTIALS="path/to/service-account.json"
+export OPENAI_API_KEY="your_openai_api_key"  # NEW!
 
-# eBay Browse API (NEW!)
+# eBay Browse API
 export EBAY_SANDBOX_APP_ID="your_sandbox_app_id"
 export EBAY_SANDBOX_CERT_ID="your_sandbox_cert_id"
 export EBAY_USE_SANDBOX="true"
