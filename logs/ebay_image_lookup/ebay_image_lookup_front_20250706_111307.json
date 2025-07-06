@@ -1,0 +1,12 @@
+{
+  "query_info": {
+    "image_path": "examples/1/front.jpg",
+    "search_timestamp": "2025-07-06T11:13:07.873380",
+    "search_method": "eBay Browse API - search_by_image"
+  },
+  "results_summary": {
+    "total_items_found": 0,
+    "items_returned": 0
+  },
+  "items": []
+}

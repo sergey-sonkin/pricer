@@ -1,0 +1,100 @@
+{
+  "search_terms": "test item",
+  "total_sold": 0,
+  "total_active": 13,
+  "price_statistics": {
+    "sold_min": 0.0,
+    "sold_max": 0.0,
+    "sold_avg": 0.0,
+    "sold_median": 0.0,
+    "sold_count": 0,
+    "active_min": 0.99,
+    "active_max": 49.99,
+    "active_avg": 18.553076923076922,
+    "active_median": 20.98,
+    "active_count": 13
+  },
+  "market_insights": [],
+  "confidence_score": 0.13,
+  "sold_listings": [],
+  "active_listings": [
+    {
+      "title": "CSV Test Item 1 #183222",
+      "price": 0.99,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/CSV-Test-Item-1-183222/110587707184?src=urllib&_skw=test+item&hash=item19bf8a7f30:i:110587707184"
+    },
+    {
+      "title": "CSV Test Item 2 #186989",
+      "price": 30.99,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/CSV-Test-Item-2-186989/110587707185?src=urllib&_skw=test+item&hash=item19bf8a7f31:i:110587707185"
+    },
+    {
+      "title": "TEST ITEM - NEW C 3 Pack Designed for iPhone 14, iPhone 13, iPhone 13 Pro Screen",
+      "price": 5.89,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-NEW-C-3-Pack-Designed-for-iPhone-14-iPhone-13-iPhone-13-Pro-Screen/110587868006?src=urllib&_skw=test+item&hash=item19bf8cf366:i:110587868006"
+    },
+    {
+      "title": "TEST ITEM - LEGO Botanicals Lucky Bamboo Building Set - Artificial Plant for Ind",
+      "price": 23.95,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-LEGO-Botanicals-Lucky-Bamboo-Building-Set-Artificial-Plant-for-Ind/110587868915?src=urllib&_skw=test+item&hash=item19bf8cf6f3:i:110587868915"
+    },
+    {
+      "title": "TEST ITEM - LED Desk Lamp for Office Home, Eye-Caring Desk Light with Stepless D",
+      "price": 20.98,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-LED-Desk-Lamp-for-Office-Home-Eye-Caring-Desk-Light-with-Stepless-D/110587869041?src=urllib&_skw=test+item&hash=item19bf8cf771:i:110587869041"
+    },
+    {
+      "title": "TEST ITEM - MDOZQ Office Desk Accessories 2pcs Computer Monitor Memo Board Messa",
+      "price": 6.98,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-MDOZQ-Office-Desk-Accessories-2pcs-Computer-Monitor-Memo-Board-Messa/110587869153?src=urllib&_skw=test+item&hash=item19bf8cf7e1:i:110587869153"
+    },
+    {
+      "title": "TEST ITEM - Amazon Basics Stapler with 1000 Staples, Office Stapler, 25 Sheet Ca",
+      "price": 6.29,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-Amazon-Basics-Stapler-with-1000-Staples-Office-Stapler-25-Sheet-Ca/110587869263?src=urllib&_skw=test+item&hash=item19bf8cf84f:i:110587869263"
+    },
+    {
+      "title": "TEST ITEM - Swingline Stapler Value Pack, 20 Sheet Capacity, Jam Free, includes ",
+      "price": 8.24,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-Swingline-Stapler-Value-Pack-20-Sheet-Capacity-Jam-Free-includes/110587869937?src=urllib&_skw=test+item&hash=item19bf8cfaf1:i:110587869937"
+    },
+    {
+      "title": "Test Item from API",
+      "price": 49.99,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Test-Item-from-API/110587908757?src=urllib&_skw=test+item&hash=item19bf8d9295:i:110587908757"
+    },
+    {
+      "title": "TEST ITEM - LED Desk Lamp for Office Home, Eye-Caring Desk Light with Stepless D",
+      "price": 20.98,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-LED-Desk-Lamp-for-Office-Home-Eye-Caring-Desk-Light-with-Stepless-D/110587869137?src=urllib&_skw=test+item&hash=item19bf8cf7d1:i:110587869137"
+    },
+    {
+      "title": "TEST ITEM - LEGO Botanicals Lucky Bamboo Building Set - Artificial Plant for Ind",
+      "price": 23.95,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-LEGO-Botanicals-Lucky-Bamboo-Building-Set-Artificial-Plant-for-Ind/110587869151?src=urllib&_skw=test+item&hash=item19bf8cf7df:i:110587869151"
+    },
+    {
+      "title": "TEST ITEM - LED Desk Lamp for Office Home, Eye-Caring Desk Light with Stepless D",
+      "price": 20.98,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-LED-Desk-Lamp-for-Office-Home-Eye-Caring-Desk-Light-with-Stepless-D/110587869155?src=urllib&_skw=test+item&hash=item19bf8cf7e3:i:110587869155"
+    },
+    {
+      "title": "TEST ITEM - LED Desk Lamp for Office Home, Eye-Caring Desk Light with Stepless D",
+      "price": 20.98,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/TEST-ITEM-LED-Desk-Lamp-for-Office-Home-Eye-Caring-Desk-Light-with-Stepless-D/110587869250?src=urllib&_skw=test+item&hash=item19bf8cf842:i:110587869250"
+    }
+  ]
+}

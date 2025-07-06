@@ -1,0 +1,22 @@
+{
+  "image_path": "examples/cat.jpeg",
+  "product_description": "Cat litter box with a black cat partially inside. There is a puddle of liquid on the floor nearby, indicating a possible leakage or cleanliness issue.",
+  "brand": null,
+  "product_type": "pet supplies",
+  "condition": "fair",
+  "notable_features": [
+    "covered design",
+    "partially visible cat",
+    "potential cleanliness concerns"
+  ],
+  "market_category": "Pet Supplies > Cat Supplies > Litter Boxes",
+  "confidence_level": "medium",
+  "pricing_factors": [
+    "brand reputation",
+    "condition (leakage issues)",
+    "material quality",
+    "demand for pet supplies",
+    "size and capacity of the litter box"
+  ],
+  "raw_response": "{\n    \"product_description\": \"Cat litter box with a black cat partially inside. There is a puddle of liquid on the floor nearby, indicating a possible leakage or cleanliness issue.\",\n    \"brand\": null,\n    \"product_type\": \"pet supplies\",\n    \"condition\": \"fair\",\n    \"notable_features\": [\"covered design\", \"partially visible cat\", \"potential cleanliness concerns\"],\n    \"market_category\": \"Pet Supplies > Cat Supplies > Litter Boxes\",\n    \"confidence_level\": \"medium\",\n    \"pricing_factors\": [\"brand reputation\", \"condition (leakage issues)\", \"material quality\", \"demand for pet supplies\", \"size and capacity of the litter box\"]\n}"
+}

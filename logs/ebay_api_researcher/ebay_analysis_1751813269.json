@@ -1,0 +1,238 @@
+{
+  "search_terms": "iPhone",
+  "total_sold": 0,
+  "total_active": 36,
+  "price_statistics": {
+    "sold_min": 0.0,
+    "sold_max": 0.0,
+    "sold_avg": 0.0,
+    "sold_median": 0.0,
+    "sold_count": 0,
+    "active_min": 1.0,
+    "active_max": 170000.0,
+    "active_avg": 5683.387777777778,
+    "active_median": 167.42,
+    "active_count": 36
+  },
+  "market_insights": [],
+  "confidence_score": 0.2,
+  "sold_listings": [],
+  "active_listings": [
+    {
+      "title": "Iphone 17 Pro Max",
+      "price": 167.42,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Iphone-17-Pro-Max/110587745391?src=urllib&_skw=iPhone&hash=item19bf8b146f:g:5yIAAOSwsSFoSsup"
+    },
+    {
+      "title": "APPLE IPHONE 25 PEAREL 73",
+      "price": 10000.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/APPLE-IPHONE-25-PEAREL-73/110587799595?src=urllib&_skw=iPhone&hash=item19bf8be82b:i:110587799595"
+    },
+    {
+      "title": "Deff \u30c7\u30a3\u30fc\u30d5 iPhone 12 mini \u7528 \u30a2\u30eb\u30df\u30cb\u30a6\u30e0 \u30d0\u30f3\u30d1\u30fc CLEAVE Aluminum Bumper (\u83f1\u5f62\u306e\u5f6b\u523b) \u30a2\u30eb\u30df\u30cb\u30a6\u30e0\u5408\u91d1A6",
+      "price": 5980.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Deff-iPhone-12-mini-CLEAVE-Aluminum-Bumper-A6/110587809520?src=urllib&_skw=iPhone&hash=item19bf8c0ef0:i:110587809520"
+    },
+    {
+      "title": "URBAN ARMOR GEAR iPhone 15 Pro Max 2023\u5bfe\u5fdc\u8010\u885d\u6483\u30b1\u30fc\u30b9 PATHFINDER MagSafe\u5bfe\u5fdc \u30db\u30ef\u30a4\u30c8 \u3010\u65e5\u672c\u6b63\u898f\u4ee3",
+      "price": 6780.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/URBAN-ARMOR-GEAR-iPhone-15-Pro-Max-2023-PATHFINDER-MagSafe/110587809529?src=urllib&_skw=iPhone&hash=item19bf8c0ef9:i:110587809529"
+    },
+    {
+      "title": "iPhone16Pro iPhone 16Pro \u7528 \u30d5\u30ea\u30c3\u30d7\u30ab\u30d0\u30fc [\u30d6\u30eb\u30fc] PG-24BFP01BL",
+      "price": 2599.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/iPhone16Pro-iPhone-16Pro-PG-24BFP01BL/110587809538?src=urllib&_skw=iPhone&hash=item19bf8c0f02:i:110587809538"
+    },
+    {
+      "title": "Apple iPhone 12 Midnight 128GB",
+      "price": 250.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Apple-iPhone-12-Midnight-128GB/110587809578?src=urllib&_skw=iPhone&hash=item19bf8c0f2a:i:110587809578"
+    },
+    {
+      "title": "Apple iPhone 13 Midnight 256GB",
+      "price": 300.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Apple-iPhone-13-Midnight-256GB/110587809579?src=urllib&_skw=iPhone&hash=item19bf8c0f2b:i:110587809579"
+    },
+    {
+      "title": "APPLE IPHONE 22 PEAREL 70",
+      "price": 2000.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/APPLE-IPHONE-22-PEAREL-70/110587813953?src=urllib&_skw=iPhone&hash=item19bf8c2041:i:110587813953"
+    },
+    {
+      "title": "iPhone 13 Pro Max",
+      "price": 220.17,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/iPhone-13-Pro-Max/110587815946?src=urllib&_skw=iPhone&hash=item19bf8c280a:g:qfAAAOSwnM5oUYR4"
+    },
+    {
+      "title": "\u5bfe\u5fdc iPhone se2 / se3 \u30ac\u30e9\u30b9\u30d5\u30a3\u30eb\u30e0 \u30ac\u30a4\u30c9\u67a0\u4ed8\u304d \u30102+2\u679a\u30bb\u30c3\u30c8-\u56fd\u7523\u65ed\u785d\u5b50\u7d20\u6750\u3011 iphone se \u7b2c3\u4e16\u4ee3 \u30d5\u30a3\u30eb\u30e0\uff08\uff12\u679a\u5165\u308a\uff09 +",
+      "price": 4.1,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/iPhone-se2-se3-2-2-iphone-se-3/110587920384?src=urllib&_skw=iPhone&hash=item19bf8dc000:i:110587920384"
+    },
+    {
+      "title": "Apple Iphone18 Silver 64GB",
+      "price": 10.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Apple-Iphone18-Silver-64GB/110587940557?src=urllib&_skw=iPhone&hash=item19bf8e0ecd:i:110587940557"
+    },
+    {
+      "title": "Spigen \u3010\u5275\u696d18\u5e74\u306e\u6280\u8853\u529b\u3011 iPhone 15 Pro Max \u30b1\u30fc\u30b9 MagSafe\u5bfe\u5fdc \u30de\u30b0\u30cd\u30c3\u30c8\u642d\u8f09 \u7c73\u8ecdMIL\u898f\u683c \u30e9\u30ae\u30c3\u30c9\u30fb\u30a2\u30fc\u30de\u30fc\u30fb\u30de\u30b0\u30d5",
+      "price": 2790.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Spigen-18-iPhone-15-Pro-Max-MagSafe-MIL/110587993000?src=urllib&_skw=iPhone&hash=item19bf8edba8:i:110587993000"
+    },
+    {
+      "title": "kwmobile \u30b9\u30de\u30db\u30b1\u30fc\u30b9 Apple iPhone SE3 / iPhone SE2 / iPhone SE (2022) / iPhone SE (20",
+      "price": 1040.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/kwmobile-Apple-iPhone-SE3-iPhone-SE2-iPhone-SE-2022-iPhone-SE-20/110587993042?src=urllib&_skw=iPhone&hash=item19bf8edbd2:i:110587993042"
+    },
+    {
+      "title": "JETech iPhone se3/iPhone se2/iPhone 8/7 (4.7\u30a4\u30f3\u30c1\u7528) \u5168\u9762\u4fdd\u8b77\u30d5\u30a3\u30eb\u30e0 \u5f37\u5316\u30ac\u30e9\u30b9\u30d5\u30a3\u30eb\u30e0 \u767d\u7e01 \u30ac\u30a4\u30c9\u67a0\u4ed8\u304d \u30b1",
+      "price": 9.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/JETech-iPhone-se3-iPhone-se2-iPhone-8-7-4-7/110588055296?src=urllib&_skw=iPhone&hash=item19bf8fcf00:i:110588055296"
+    },
+    {
+      "title": "\u301018\u5e74\u793e\u6b74\u306e\u6280\u8853\u529b\u3011Spigen iPhone SE3 SE2 \u3010\u7b2c3/2\u4e16\u4ee3\u3011 \u30b1\u30fc\u30b9 iPhone7/8\u7528 \u30b1\u30fc\u30b9 \u8010\u885d\u6483 \u6307\u7d0b\u9632\u6b62 TPU\u7d20\u6750 \u30bd\u30d5\u30c8 ",
+      "price": 13.16,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/18-Spigen-iPhone-SE3-SE2-3-2-iPhone7-8-TPU/110588055448?src=urllib&_skw=iPhone&hash=item19bf8fcf98:i:110588055448"
+    },
+    {
+      "title": "JETech iPhone SE 2020/2022 (\u7b2c2/3\u4e16\u4ee3) iPhone8 iPhone7 \u30b1\u30fc\u30b9 \u9ec4\u3070\u307f\u306a\u3057 \u30d0\u30f3\u30d1\u30fc \u885d\u6483\u5438\u53ce \u50b7\u3064\u3051\u9632\u6b62 (\u30af",
+      "price": 1.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/JETech-iPhone-SE-2020-2022-2-3-iPhone8-iPhone7/110588081417?src=urllib&_skw=iPhone&hash=item19bf903509:i:110588081417"
+    },
+    {
+      "title": "\u30b9\u30de\u30fc\u30c8\u30a6\u30a9\u30c3\u30c1\u30102025\u9032\u5316\u30e2\u30c7\u30eb\u3011Bluetooth\u901a\u8a71\u6a5f\u80fd \u97f3\u697d\u518d\u751f iPhone\u5bfe\u5fdc \u30a2\u30f3\u30c9\u30ed\u30a4\u30c9\u5bfe\u5fdc SMS/Line\u901a\u77e5 \u591a\u6a5f\u80fd\u30b9\u30de\u30fc\u30c8\u30a6\u30a9\u30c3\u30c1 1",
+      "price": 50.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/2025-Bluetooth-iPhone-SMS-Line-1/110588114566?src=urllib&_skw=iPhone&hash=item19bf90b686:i:110588114566"
+    },
+    {
+      "title": "New Apple iPhone SE 3rd Gen (2022) 5G 256GB 4.7\" Smartphone - Factory Unlocked",
+      "price": 349.98,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/New-Apple-iPhone-SE-3rd-Gen-2022-5G-256GB-4-7-Smartphone-Factory-Unlocked/110587743283?src=urllib&_skw=iPhone&hash=item19bf8b0c33:g:A2UAAOSwAlJoNzOb"
+    },
+    {
+      "title": "iphone product test (Copy)",
+      "price": 1.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/iphone-product-test-Copy/110587681730?src=urllib&_skw=iPhone&hash=item19bf8a1bc2:i:110587681730"
+    },
+    {
+      "title": "iPhone 15 pro max",
+      "price": 22.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/iPhone-15-pro-max/110587681839?src=urllib&_skw=iPhone&hash=item19bf8a1c2f:i:110587681839"
+    },
+    {
+      "title": "Iphone X",
+      "price": 170000.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Iphone-X/110587713201?src=urllib&_skw=iPhone&hash=item19bf8a96b1:i:110587713201"
+    },
+    {
+      "title": "iPhone SE Box",
+      "price": 30.5,
+      "condition": "Open box",
+      "url": "https://cgi.sandbox.ebay.com/itm/iPhone-SE-Box/110588000991?src=urllib&_skw=iPhone&hash=item19bf8efadf:i:110588000991"
+    },
+    {
+      "title": "For iPhone 14 Pro Wallet Phone Case Strap Cover + Tempered Glass Screen Protecto",
+      "price": 14.09,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/For-iPhone-14-Pro-Wallet-Phone-Case-Strap-Cover-Tempered-Glass-Screen-Protecto/110588008478?src=urllib&_skw=iPhone&hash=item19bf8f181e:i:110588008478"
+    },
+    {
+      "title": "For iPhone 14 Pro Wallet Phone Case Strap Cover + Tempered Glass Screen Protecto",
+      "price": 14.09,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/For-iPhone-14-Pro-Wallet-Phone-Case-Strap-Cover-Tempered-Glass-Screen-Protecto/110588008486?src=urllib&_skw=iPhone&hash=item19bf8f1826:i:110588008486"
+    },
+    {
+      "title": "Apple iPhone 14 Pro 5G Triple Camera 48MP Used Smartphone",
+      "price": 750.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Apple-iPhone-14-Pro-5G-Triple-Camera-48MP-Used-Smartphone/110588025751?src=urllib&_skw=iPhone&hash=item19bf8f5b97:i:110588025751"
+    },
+    {
+      "title": "Iphone 13 pro max",
+      "price": 100.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Iphone-13-pro-max/110587681021?src=urllib&_skw=iPhone&hash=item19bf8a18fd:i:110587681021"
+    },
+    {
+      "title": "latest iphone 17 pro max",
+      "price": 399.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/latest-iphone-17-pro-max/110587712909?src=urllib&_skw=iPhone&hash=item19bf8a958d:i:110587712909"
+    },
+    {
+      "title": "For iPhone 13 Pro Max 6.7'' 13 6.1'' Nice Original Silicone Phone Case MagSafe",
+      "price": 14.22,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/For-iPhone-13-Pro-Max-6-7-13-6-1-Nice-Original-Silicone-Phone-Case-MagSafe/110587976341?src=urllib&_skw=iPhone&hash=item19bf8e9a95:g:SKcAAOSwJxxoQZ6p"
+    },
+    {
+      "title": "Iphone 17 Pro Max",
+      "price": 167.42,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Iphone-17-Pro-Max/110587745443?src=urllib&_skw=iPhone&hash=item19bf8b14a3:g:szcAAOSwqMtoSs4g"
+    },
+    {
+      "title": "Iphone 17 Pro Max",
+      "price": 167.42,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Iphone-17-Pro-Max/110587745462?src=urllib&_skw=iPhone&hash=item19bf8b14b6:g:pcgAAOSwE3toSs9f"
+    },
+    {
+      "title": "iPhone 13 Pro Max",
+      "price": 220.17,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/iPhone-13-Pro-Max/110587817899?src=urllib&_skw=iPhone&hash=item19bf8c2fab:g:qfAAAOSwnM5oUYR4"
+    },
+    {
+      "title": "Apple iphone 11",
+      "price": 1.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Apple-iphone-11/110587713209?src=urllib&_skw=iPhone&hash=item19bf8a96b9:i:110587713209"
+    },
+    {
+      "title": "iphone product test (Copy)",
+      "price": 1.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/iphone-product-test-Copy/110588111659?src=urllib&_skw=iPhone&hash=item19bf90ab2b:i:110588111659"
+    },
+    {
+      "title": "iPhone 15 pro max",
+      "price": 22.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/iPhone-15-pro-max/110588111673?src=urllib&_skw=iPhone&hash=item19bf90ab39:i:110588111673"
+    },
+    {
+      "title": "Iphone 13 pro max",
+      "price": 100.0,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/Iphone-13-pro-max/110587812645?src=urllib&_skw=iPhone&hash=item19bf8c1b25:i:110587812645"
+    },
+    {
+      "title": "For iPhone 13 Pro Max 6.7'' 13 6.1'' Nice Original Silicone Phone Case MagSafe",
+      "price": 14.22,
+      "condition": "New",
+      "url": "https://cgi.sandbox.ebay.com/itm/For-iPhone-13-Pro-Max-6-7-13-6-1-Nice-Original-Silicone-Phone-Case-MagSafe/110587976339?src=urllib&_skw=iPhone&hash=item19bf8e9a93:g:SKcAAOSwJxxoQZ6p"
+    }
+  ]
+}

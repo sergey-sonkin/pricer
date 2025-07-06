@@ -1,0 +1,21 @@
+{
+  "image_path": "examples/cat.jpeg",
+  "product_description": "Pet litter box with a cat partially exiting. The litter box appears to be designed for ease of use by pets.",
+  "brand": null,
+  "product_type": "pet supplies",
+  "condition": "good",
+  "notable_features": [
+    "can accommodate multiple cat sizes",
+    "easy access for pets",
+    "may have a cover to contain litter"
+  ],
+  "market_category": "Pet Supplies",
+  "confidence_level": "medium",
+  "pricing_factors": [
+    "brand reputation",
+    "condition of the item",
+    "additional accessories included (if any)",
+    "local demand for pet supplies"
+  ],
+  "raw_response": "{\n    \"product_description\": \"Pet litter box with a cat partially exiting. The litter box appears to be designed for ease of use by pets.\",\n    \"brand\": null,\n    \"product_type\": \"pet supplies\",\n    \"condition\": \"good\",\n    \"notable_features\": [\n        \"can accommodate multiple cat sizes\",\n        \"easy access for pets\",\n        \"may have a cover to contain litter\"\n    ],\n    \"market_category\": \"Pet Supplies\",\n    \"confidence_level\": \"medium\",\n    \"pricing_factors\": [\n        \"brand reputation\",\n        \"condition of the item\",\n        \"additional accessories included (if any)\",\n        \"local demand for pet supplies\"\n    ]\n}"
+}
