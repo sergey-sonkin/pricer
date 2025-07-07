@@ -8,13 +8,9 @@ Uses the GeminiAnalyzer from lib.analyzers for the agent system.
 import os
 from typing import Any
 
-from .base import ToolDefinition
+from lib.analyzers import GeminiAnalyzer
 
-try:
-    from lib.analyzers import GeminiAnalyzer
-except ImportError as e:
-    print(f"Warning: Could not import GeminiAnalyzer: {e}")
-    GeminiAnalyzer = None
+from .base import ToolDefinition
 
 
 def analyze_image_with_gemini(input_data: dict[str, Any]) -> str:
