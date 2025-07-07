@@ -8,13 +8,9 @@ Uses the VisionAnalyzer from lib.analyzers for the agent system.
 import os
 from typing import Any
 
-from .base import ToolDefinition
+from lib.analyzers.vision import VisionAnalyzer
 
-try:
-    from lib.analyzers.vision import VisionAnalyzer
-except ImportError as e:
-    print(f"Warning: Could not import VisionAnalyzer: {e}")
-    VisionAnalyzer = None
+from .base import ToolDefinition
 
 
 def analyze_image_with_vision(input_data: dict[str, Any]) -> str:

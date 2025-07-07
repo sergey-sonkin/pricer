@@ -8,6 +8,9 @@ Todos:
 - Train the agent to ask users clarifying questions
 - Add ebay researcher test case
 
+2025/07/07:
+- Clean up try-except imports
+
 2025/07/06:
 - Store ebay results in sqlite db
 - Confirm sqlite db works as intended with agent runs

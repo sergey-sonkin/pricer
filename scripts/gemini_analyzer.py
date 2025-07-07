@@ -16,12 +16,7 @@ from pathlib import Path
 # Add parent directory to path to import lib
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
-try:
-    from lib.analyzers import GeminiAnalyzer, ProductAnalysis
-except ImportError as e:
-    print(f"Missing PicPrice library: {e}")
-    print("Make sure you're running from the project root directory")
-    sys.exit(1)
+from lib.analyzers import GeminiAnalyzer, ProductAnalysis
 
 
 def print_analysis(analysis: ProductAnalysis, image_path: str):

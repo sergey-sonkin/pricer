@@ -15,14 +15,9 @@ import time
 from dataclasses import dataclass
 from urllib.parse import quote
 
-try:
-    import requests
-    from bs4 import BeautifulSoup
-    from dotenv import load_dotenv
-except ImportError as e:
-    print(f"Missing dependencies: {e}")
-    print("Install with: uv add requests beautifulsoup4 python-dotenv")
-    sys.exit(1)
+import requests
+from bs4 import BeautifulSoup
+from dotenv import load_dotenv
 
 
 @dataclass

@@ -13,14 +13,9 @@ import time
 from dataclasses import dataclass
 from urllib.parse import quote
 
-try:
-    import google.generativeai as genai
-    import requests
-    from bs4 import BeautifulSoup
-except ImportError as e:
-    print(f"Missing dependencies: {e}")
-    print("Install with: uv add google-generativeai requests beautifulsoup4")
-    sys.exit(1)
+import google.generativeai as genai
+import requests
+from bs4 import BeautifulSoup
 
 
 @dataclass

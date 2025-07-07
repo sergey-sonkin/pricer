@@ -8,13 +8,9 @@ Uses the OpenAIAnalyzer from lib.analyzers for the agent system.
 import os
 from typing import Any
 
-from .base import ToolDefinition
+from lib.analyzers import OpenAIAnalyzer
 
-try:
-    from lib.analyzers import OpenAIAnalyzer
-except ImportError as e:
-    print(f"Warning: Could not import OpenAIAnalyzer: {e}")
-    OpenAIAnalyzer = None
+from .base import ToolDefinition
 
 
 def analyze_image_with_openai(input_data: dict[str, Any]) -> str:

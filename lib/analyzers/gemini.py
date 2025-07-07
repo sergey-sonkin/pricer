@@ -11,13 +11,8 @@ import json
 import os
 from dataclasses import dataclass
 
-try:
-    import google.genai as genai
-    from PIL import Image
-except ImportError as e:
-    raise ImportError(
-        f"Missing dependencies: {e}. Install with: uv add google-genai pillow"
-    ) from e
+import google.genai as genai
+from PIL import Image
 
 
 @dataclass

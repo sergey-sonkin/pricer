@@ -15,12 +15,7 @@ from pathlib import Path
 # Add project root to path
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
-try:
-    from lib.analyzers.vision import VisionAnalyzer
-except ImportError as e:
-    print(f"Missing dependencies: {e}")
-    print("Install with: uv add google-cloud-vision")
-    sys.exit(1)
+from lib.analyzers.vision import VisionAnalyzer
 
 
 def print_analysis(analysis, image_path: str):
