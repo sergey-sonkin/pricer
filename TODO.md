@@ -1,6 +1,5 @@
 Todos:
 
-- Add OpenAI vision model
 - Add better test images
 - Enable ebay image lookup as tool
   - Write script testing ebay image lookup
@@ -9,11 +8,14 @@ Todos:
 - Add ebay researcher test case
 
 2025/07/07:
+
 - Clean up try-except imports
 
 2025/07/06:
+
 - Store ebay results in sqlite db
 - Confirm sqlite db works as intended with agent runs
+- Add OpenAI vision model
 
 2025/07/05:
 
