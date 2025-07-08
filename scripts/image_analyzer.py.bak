@@ -14,12 +14,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
-try:
-    from google.cloud import vision
-except ImportError as e:
-    print(f"Missing dependencies: {e}")
-    print("Install with: uv add google-cloud-vision pillow")
-    sys.exit(1)
+from google.cloud import vision
 
 
 @dataclass
