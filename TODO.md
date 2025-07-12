@@ -1,15 +1,19 @@
 Todos:
 
-- Add better test images
-- Enable ebay image lookup as tool
-  - Write script testing ebay image lookup
-- Improve ebay searching (agent currently uses a bunch of words at once, sees nothing, and gives up)
+- Pick out 10 images from eBay set to use as test examples
 - Train the agent to ask users clarifying questions
 - Add ebay researcher test case
+- Enable ebay image lookup as tool
+- Look into using real ebay production
+
+2025/07/12:
+
+- Update system prompt to improve ebay searching (agent now tries multiple searches)
 
 2025/07/07:
 
 - Clean up try-except imports
+- Download images from eBay training set (https://github.com/eBay/ImageGuidedTranslationDataset)
 
 2025/07/06:
 
