@@ -1,6 +1,6 @@
 Todos:
 
-- Pick out 10 images from eBay set to use as test examples
+- Pick out 5 more images to use as test examples
 - Train the agent to ask users clarifying questions
 - Add ebay researcher test case
 - Enable ebay image lookup as tool
@@ -9,6 +9,7 @@ Todos:
 2025/07/12:
 
 - Update system prompt to improve ebay searching (agent now tries multiple searches)
+- Added 4 test images directly from eBay listings
 
 2025/07/07:
 
