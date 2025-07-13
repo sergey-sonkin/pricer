@@ -10,6 +10,7 @@ Todos:
 
 - Update system prompt to improve ebay searching (agent now tries multiple searches)
 - Added 4 test images directly from eBay listings
+- Add debug flag to agent to view results of tool calls
 
 2025/07/07:
 

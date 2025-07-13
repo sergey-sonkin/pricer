@@ -1,3 +1,4 @@
+import argparse
 import json
 import os
 import sys
@@ -17,10 +18,12 @@ class Agent:
         client: Anthropic,
         get_user_message: Callable[[], tuple[str, bool]],
         tools: list[ToolDefinition],
+        debug: bool = True,
     ):
         self.client = client
         self.get_user_message = get_user_message
         self.tools = tools
+        self.debug = debug
 
     def run(self):
         conversation = []
@@ -73,9 +76,18 @@ class Agent:
                 "is_error": True,
             }
 
-        print(f"\033[92mtool\033[0m: {name}({json.dumps(tool_input)})")
+        if self.debug:
+            print(f"\033[92mtool\033[0m: {name}({json.dumps(tool_input)})")
+
         try:
             response = tool_def.function(tool_input)
+            if self.debug:
+                # Truncate long responses for readability
+                display_response = response
+                if len(str(response)) > 500:
+                    display_response = str(response)[:500] + "..."
+                print(f"\033[96mresult\033[0m: {display_response}")
+
             return {
                 "type": "tool_result",
                 "tool_use_id": tool_id,
@@ -83,6 +95,9 @@ class Agent:
                 "is_error": False,
             }
         except Exception as e:
+            if self.debug:
+                print(f"\033[91merror\033[0m: {str(e)}")
+
             return {
                 "type": "tool_result",
                 "tool_use_id": tool_id,
@@ -176,14 +191,32 @@ def new_agent(
     client: Anthropic,
     get_user_message_func: Callable[[], tuple[str, bool]],
     tools: list[ToolDefinition],
+    debug: bool = True,
 ) -> Agent:
-    return Agent(client, get_user_message_func, tools)
+    return Agent(client, get_user_message_func, tools, debug)
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        description="PicPrice AI Agent - Visual Product Pricing Assistant"
+    )
+    parser.add_argument(
+        "--no-debug",
+        action="store_true",
+        help="Disable debug output for tool calls and results",
+    )
+    args = parser.parse_args()
+
+    debug = not args.no_debug  # Debug is on by default, --no-debug turns it off
+
     client = Anthropic()  # Uses ANTHROPIC_API_KEY environment variable
 
-    agent = new_agent(client, get_user_message, ALL_TOOLS)
+    agent = new_agent(client, get_user_message, ALL_TOOLS, debug=debug)
+
+    if debug:
+        print("Debug mode: ON (use --no-debug to disable)")
+    else:
+        print("Debug mode: OFF")
 
     try:
         agent.run()
