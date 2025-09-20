@@ -16,6 +16,7 @@ dependencies = [
     "dotenv>=0.9.9",
     "pre-commit>=4.2.0",
     "openai>=1.93.0",
+    "amazon-product-search-v2>=0.1.1",
 ]
 
 [tool.ruff]

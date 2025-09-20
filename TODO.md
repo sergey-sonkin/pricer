@@ -1,5 +1,8 @@
 Todos:
+- Keep implementing Amazon search tool `tools/amazon_searcher.py`
+- Implement Amazon search saving in DB `lib/database/amazon_db.py`
 
+OLD TODOS:
 - Pick out 5 more images to use as test examples
 - Train the agent to ask users clarifying questions
 - Add ebay researcher test case
