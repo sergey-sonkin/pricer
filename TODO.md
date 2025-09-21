@@ -6,6 +6,12 @@ Todos:
 
 2025/09/21:
 - Implement Amazon search as tool for agent
+- Determine plan for eBay
+    - Two options
+        1. Set up webhook to receive notifications
+        2. Just webscrape bro.
+            - Several tests later - this doesn't work at all
+- Implement eBay account deletion for access to prod API
 
 OLD TODOS:
 - Pick out 5 more images to use as test examples

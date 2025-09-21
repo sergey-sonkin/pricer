@@ -17,6 +17,10 @@ dependencies = [
     "pre-commit>=4.2.0",
     "openai>=1.93.0",
     "amazon-product-search-v2>=0.1.1",
+    "parsel>=1.10.0",
+    "httpx[http2]>=0.28.1",
+    "uvicorn>=0.36.0",
+    "fastapi>=0.117.1",
 ]
 
 [tool.ruff]
