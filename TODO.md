@@ -1,6 +1,11 @@
 Todos:
 - Keep implementing Amazon search tool `tools/amazon_searcher.py`
+    - Implement category validation beyond just str
+        - This feels like a colossal waste of time? We'd have to pass so many categories to the LLM. Huge waste of tokens
 - Implement Amazon search saving in DB `lib/database/amazon_db.py`
+
+2025/09/21:
+- Implement Amazon search as tool for agent
 
 OLD TODOS:
 - Pick out 5 more images to use as test examples
